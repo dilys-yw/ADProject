@@ -1,0 +1,301 @@
+﻿@model ADProjGp2_LogicUStationeryStore.Models.RequisitionChartModel
+@{
+    ViewBag.Title = "RequisitionReportByDepartment";
+}
+
+<h2>Requisition Report By Departments</h2>
+<div class="col-lg-12">
+    <div class="row">
+        <div class="form-group">
+
+
+            @using (Ajax.BeginForm("RequisitionDataByDept", "RequisitionReport", new AjaxOptions { HttpMethod = "POST", OnSuccess = "formSuccess" }))
+
+    {
+        <div class="panel panel-default">
+
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Select Stationery
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    
+                    <table>
+
+                        @*set maximum selection*@
+                        <tr>
+                            @for (var i = 0; i < 10; i++)
+                    {
+                        <td width="10%">
+                            @Html.RadioButtonFor(m => Model.SelectedItem, Model.Items[i].Value)
+                            @Html.DisplayFor(m => Model.Items[i].Value)
+                            @*Html.HiddenFor(m => Model.Items[i].Value*@
+
+
+                            @*Html.ListBoxFor(m => Model.SelectedCat, new MultiSelectList(Model.Items, "Value", "Text", Model.SelectedCat), new { @class = "form-control", style = "height:250px; width:100%" })*@
+                        </td>
+            }
+                        <tr>
+                            @for (var i = 10; i < Model.Items.Count; i++)
+                    {
+                        <td width="10%">
+                            @Html.RadioButtonFor(m => Model.SelectedItem, Model.Items[i].Value)
+                            @Html.DisplayFor(m => Model.Items[i].Value)
+                            @*Html.HiddenFor(m => Model.Items[i].Value)*@
+
+
+                        </td>
+            }
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Select Department
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    <p class=" instruction" style="color:brown">Please select up to three departments only</p>
+                    <table>
+
+                        @*set maximum selection*@
+                        <tr>
+                            @for (var i = 0; i < Model.Departments.Count; i++)
+                    {
+                            <td width="10%">
+                                @Html.CheckBoxFor(m => Model.Departments[i].Selected, new { @class = "dept" })
+                                @Html.DisplayFor(m => Model.Departments[i].Value)
+                                @Html.HiddenFor(m => Model.Departments[i].Value)
+                               
+
+                                @*Html.ListBoxFor(m => Model.SelectedCat, new MultiSelectList(Model.Items, "Value", "Text", Model.SelectedCat), new { @class = "form-control", style = "height:250px; width:100%" })*@
+                            </td>
+            }
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Select Months to Compare (Up to 3 years)
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+
+                    <p class=" instruction" style="color:brown">Please select "Comparison for three years" or up to 6 months only</p>
+
+                    <p>
+
+                        @Html.CheckBoxFor(m => Model.Months[0].Selected, new { @class = "year" })
+                        @Html.DisplayFor(m => Model.Months[0].Value)
+                        @Html.HiddenFor(m => Model.Months[0].Value)
+
+                    </p>
+
+
+                    <table>
+                   
+
+                        <tr>
+
+                            Select Months (@Model.YearSelection[1].Value):
+
+                        </tr>
+
+                        <tr>
+                            @for (var i = 1; i < 7; i++)
+            {
+                <td width="5%">
+                    @Html.CheckBoxFor(m => Model.Months[i].Selected, new { @class = "year" })
+                    @Html.DisplayFor(m => Model.Months[i].Value)
+                    @Html.HiddenFor(m => Model.Months[i].Value)
+
+                </td>
+}
+                        </tr>
+                        <tr>
+                            @for (var i = 7; i < 13; i++)
+            {
+                <td width="5%">
+                    @Html.CheckBoxFor(m => Model.Months[i].Selected, new { @class = "year" })
+                    @Html.DisplayFor(m => Model.Months[i].Value)
+                    @Html.HiddenFor(m => Model.Months[i].Value)
+                    @Html.HiddenFor(m => Model.Months[i].Text)
+                </td>
+}
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+
+                            Select Months (@Model.YearSelection[2].Value):
+
+                        </tr>
+                        <tr>
+                            @for (var i = 13; i < 19; i++)
+            {
+                <td width="18.4%">
+                    @Html.CheckBoxFor(m => Model.Months[i].Selected, new { @class = "year" })
+                    @Html.DisplayFor(m => Model.Months[i].Value)
+                    @Html.HiddenFor(m => Model.Months[i].Value)
+                </td>
+}
+                        </tr>
+                        <tr>
+                            @for (var i = 19; i < 25; i++)
+            {
+                <td width="18.4%">
+                    @Html.CheckBoxFor(m => Model.Months[i].Selected, new { @class = "year" })
+                    @Html.DisplayFor(m => Model.Months[i].Value)
+                    @Html.HiddenFor(m => Model.Months[i].Value)
+                </td>
+}
+                        </tr>
+                    </table>
+                    <div>
+                        <table>
+                            <tr>
+
+                                Select Months (@Model.YearSelection[3].Value):
+
+                            </tr>
+                            <tr>
+                                @for (var i = 25; i < 31; i++)
+                {
+                    <td width="18.4%">
+                        @Html.CheckBoxFor(m => Model.Months[i].Selected, new { @class = "year" })
+                        @Html.DisplayFor(m => Model.Months[i].Value)
+                        @Html.HiddenFor(m => Model.Months[i].Value)
+                    </td>
+}
+                            </tr>
+                            <tr>
+                                @for (var i = 31; i < Model.Months.Count; i++)
+                {
+                    <td width="18.4%">
+                        @Html.CheckBoxFor(m => Model.Months[i].Selected, new { @class = "year" })
+                        @Html.DisplayFor(m => Model.Months[i].Value)
+                        @Html.HiddenFor(m => Model.Months[i].Value)
+                    </td>
+}
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <button type="submit"
+                class="btn btn-primary"
+                id="process"
+                value="Process">
+            <span class="ladda-label">Generate Report</span>
+        </button>
+
+
+
+}
+
+            <div id="graph">
+                <canvas id="barChart" width="400" height="150"></canvas>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+ 
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+    <script>
+                    var coll = document.getElementsByClassName("collapsible");
+                    var i;
+
+                    for (i = 0; i < coll.length; i++) {
+                        coll[i].addEventListener("click", function () {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.display === "block") {
+                                content.style.display = "none";
+                            } else {
+                                content.style.display = "block";
+                            }
+                        });
+        }
+
+        
+
+       
+
+        $(".dept").on('change', disableWithMax);
+
+        function disableWithMax() {         
+                if ($("." + this.className + ":checked").length > 3) {
+                    this.checked = false;
+                    //alert("Maximum selection is 3 only");
+                }
+            
+        }
+
+        $(".year").on('change', disableOthers);
+
+        function disableOthers() {            
+            if ($("." + this.className).eq(0).is(':checked')) {
+                for (var i = 1; i < 37; i++) {
+                    $("." + this.className).eq(i).attr('disabled', true);
+                    $("." + this.className).eq(i).attr('checked', false);
+                }
+            }
+            else {
+                for (var i = 1; i < 37; i++) {
+                 $("." + this.className).eq(i).attr('disabled', false);
+                                 
+                        if ($("." + this.className + ":checked").length > 6) {
+                            this.checked = false;
+                        }
+                }
+            }
+            
+        }
+        
+        var myBarChart = '';
+        function formSuccess(data) {
+            var c = document.getElementById("barChart");
+           
+            var ctx = c.getContext("2d");
+            var tData = data;
+            if (myBarChart) myBarChart.destroy();
+                myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: tData
+
+                });
+            
+        }
+
+        
+        </script>
+    }

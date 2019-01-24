@@ -1,0 +1,115 @@
+﻿
+
+@model ADProjGp2_LogicUStationeryStore.Models.DisbursementViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisbursementDetail</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        #RDlist th {
+            word-break: keep-all;
+        }
+
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+            padding-left:10px;
+        }
+        table tbody td {
+            padding-left: 8px;
+            padding-right:8px;
+        }
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1>Disbursement Detail</h1>
+        @using (@Html.BeginForm())
+        {
+            <div>
+                <table id="RDlist" style="min-width:995px;">
+                    <tr>
+                        <th>Disbursement ID </th>
+                        <th>Disburse Date</th>
+                        <th>Department</th>
+                        <th>Collection Point and Time</th>
+                        <th>Representative Name</th>
+                        <th>Remark</th>
+                    </tr>
+                    <tr>
+                        <td>@Model.disbursementID</td>
+                        @Html.HiddenFor(m => m.disbursementID)
+                        <td>@Model.disburseDate</td>
+                        @Html.HiddenFor(m => m.disburseDate)
+                        <td>@Model.requestorDeptID</td>
+                        @Html.HiddenFor(m => m.requestorDeptID)
+                        <td>@Model.collectionPoint (@Model.collectionTime)</td>
+                        @Html.HiddenFor(m => m.collectionPoint)
+                        @Html.HiddenFor(m => m.collectionTime)
+                        <td>@Model.repName</td>
+                        @Html.HiddenFor(m => m.repName)
+                        <td>@Model.status</td>
+                        @Html.HiddenFor(m => m.status)
+                    </tr>
+                </table>
+                <br />
+                <h3>Details Info</h3>
+                @using ADProjGp2_LogicUStationeryStore.Models
+
+                <table style="min-width:1000px;">
+                    <tr>
+                        <th> Requestor Name and ID </th>
+                        <th> Requsition ID</th>
+                        <th> Retrieval ID</th>
+                        <th> Request Item</th>
+                        <th> Item Description</th>
+                        <th> Request Qty</th>
+                        <th> Receive Qty</th>
+                        <th> Adjustment Qty</th>
+                    </tr>
+                    @foreach (DisbursementViewModelDetail x in Model.dvmdList)
+                    {
+                        <tr>
+                            <td>@x.requestorName (ID:@x.requestorID)</td>
+                            <td>@x.requisitionID</td>
+                            <td>@x.retrievalID</td>
+                            <td>@x.itemID</td>
+                            <td>@x.itemDescription</td>
+                            <td>@x.requestQty</td>
+                            <td>@x.retrieveQty</td>
+                            <td>@x.adjQty</td>
+                        </tr>
+                     }
+                </table>
+                @Html.HiddenFor(m => m.dvmdList)
+            </div>
+
+
+            <div class="button-container-right">
+                @Html.ActionLink("Back", "DisbursementForRep", "", new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+                &nbsp;&nbsp;
+                @if (Model.status != "Collection Confirmed")
+                {
+                    <button type="submit" formaction=@Url.Action("DisbursementUserConfirm", "Disbursement", new { disburseID = Model.disbursementID }) formmethod="post" class="button button--size-m button--antiman button--round-m button--text-medium">I confirm the above Disbursement Collection</button>
+                }
+            </div>
+
+           }
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "SetCollectionPoint";
+}
+@model List<string>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SetCollectionPoint</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/RaidoButton.css" rel="stylesheet" type="text/css"/>
+    <style>
+        fieldset {
+            padding: .35em 3em .75em;
+            margin: 0 10px;
+            border: 1px solid #c0c0c0;
+        }
+
+        legend {
+            padding: 2px;
+            width: auto;
+            border: 0;
+        }
+
+        body h1 {
+            font-weight: 700;
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    </style>
+    <script src="~/Content/js/RadioButton/prefixfree.min.js"></script>
+    <script src="~/Content/js/RadioButton/modernizr.js"></script>
+</head>
+<body>
+    <h1>Set Collection Point</h1>
+    <fieldset>
+        <legend>Current Point is : &nbsp; @ViewBag.CollectPoint @ViewBag.CollectTime</legend>
+
+        @*<h3 style="padding-left:30%;margin-top:100px;" style="padding-left:30%;margin-top:100px;font-size:20px;"> </h3>*@
+        @using (Html.BeginForm("SetCollectionPoint", "Settings", FormMethod.Post))
+        {
+            <div class="col-lg-4" style="font-size:20px;line-height:200%;margin-top:70px;margin-left:37%;min-width:500px;text-align:left;">
+                @*style="text-align:left;width: 75%;position:relative;"*@
+                @*@foreach(string x in Model)
+                    {
+                        string radioselection = x;
+                        bool flag = x.Contains(ViewBag.CollectPoint);
+                        @Html.RadioButton("Point", radioselection, flag)
+                        <br />
+                    }*@
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    string radioselection = Model[i].ToString();
+                    bool flag = radioselection.Contains(ViewBag.CollectPoint);
+                    string pointid = "Point" + i;
+                    @Html.RadioButton("Point", radioselection, flag, new { @id = "Point" + i })
+                    <label for="@pointid">@radioselection</label>
+                    <br />
+                }
+            </div>
+            <br />
+            <div class="button-container col-lg-2 col-lg-offset-5 " style="vertical-align:central;">
+                <button class="button button--size-m button--antiman button--round-m button--text-medium" type="submit" value="Save">Save</button>
+            </div>
+        }
+    </fieldset>
+</body>
+</html>
+

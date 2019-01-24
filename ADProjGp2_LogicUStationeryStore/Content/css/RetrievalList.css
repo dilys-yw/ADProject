@@ -1,0 +1,109 @@
+﻿.collapsible {
+    background-color: rgba(98, 168, 209, 0.50);
+    color: white;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    height: auto;
+    /*****************************************/
+    position: relative;
+    margin: 0 auto;
+    max-width: 75%;
+    min-width:930px;
+    border-radius: 0;
+    /********/
+    font-family: Verdana;
+    word-break: break-all;
+    border-top:1px solid black;
+    /*padding: 0 10px;*/
+}
+
+ .collapsible:hover {
+        background-color: rgba(98, 168, 209, 0.40);
+    }
+
+.content {
+    /*padding: 0 10px;*/
+    max-height: 0;
+    /*max-height:1px;*/
+    max-height: none;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #e8e8e8;
+    /**********************************/
+    width: auto;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    height: auto;
+    /**************************/
+    position: relative;
+    margin: 0 auto;
+    max-width: 75%;
+    min-width: 930px;
+    border-radius: 0;
+    /********/
+    font-family: Verdana;
+    word-break: break-all;
+}
+
+
+/*.collapsible tr td:first-child, .content tr td:first-child, #RLlist tr th:first-child {
+        width: 80px;
+    }
+
+    .collapsible tr td:nth-child(2), .content tr td:nth-child(2), #RLlist tr th:nth-child(2) {
+        width: 110px;
+    }
+
+    .collapsible tr td:nth-child(3), .content tr td:nth-child(3), #RLlist tr th:nth-child(3) {
+        width: 110px;
+    }
+
+    .collapsible tr td:nth-child(4), .content tr td:nth-child(4), #RLlist tr th:nth-child(4) {
+        width: 130px;
+    }
+
+    .collapsible tr td:nth-child(5), .content tr td:nth-child(5), #RLlist tr th:nth-child(5) {
+        width: 150px;
+    }
+
+    .collapsible tr td:nth-child(6), .content tr td:nth-child(6), #RLlist tr th:nth-child(6) {
+        width: 170px;
+    }
+
+    .collapsible tr td:nth-child(7), .content tr td:nth-child(7), #RLlist tr th:nth-child(7) {
+        width: 130px;
+    }*/
+
+#RLlist {
+    background-color: #438eb9;
+    position: relative;
+    margin: 0 auto;
+    color: #fff;
+    max-width: 75%;
+    min-width: 930px;
+    border-radius: 0;
+    /*****************************************/
+    position: relative;
+    border-radius: 0;
+    /********/
+    padding: 5px 10px;
+    font-family: Verdana;
+    font-size: 15px;
+    font-weight: 500;
+    word-break: keep-all;
+}
+
+div table {
+    width: 100%;
+    word-break: keep-all;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}

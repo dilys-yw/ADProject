@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "RetrievalGeneration";
+}
+
+@model List<ADProjGp2_LogicUStationeryStore.Models.RetrievalListModel>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RetrievalList</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <br />
+    <ul id="myTab" class="nav nav-pills" style="height:80px;margin:auto;margin-left:25px;">
+        <li class="active"> <a href="#RetrievalList" data-toggle="tab">Retrieval List</a></li>
+        <li><a href="#RetrievalListSummary" data-toggle="tab">Retrieval List Summary</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content" style="border:hidden;background-color:white;">
+        <!--Tab for RL details-->
+        <div class="tab-pane fade in active" id="RetrievalList">
+            <h1>Stationery Retrieval List</h1>
+            @using (@Html.BeginForm())
+            {
+                <div>
+                    <table id="RHlist" style="min-width:1021px;">
+                        <tr style="font-size:12px;font-weight:300;">
+                            <th style="width:70px;">Bin# </th>
+                            <th style="width:140px;">Stationery<br />Description</th>
+                            <th style="width:145px;">Department</th>
+                            <th>Approval<br />Date</th>
+                            <th>Requisition ID</th>
+                            <th>Needed<br />Quantity</th>
+                            <th>Advised<br />Quantity</th>
+                            <th>User / Special <br />Adjusted Quantity</th>
+                            <th>Inventory<br />Stock</th>
+                        </tr>
+
+
+                        @for (int i = 0; i < Model.Count; i++)
+                {
+
+                            <tr>
+                                <td>@Model[i].itemBin</td>
+                                @Html.HiddenFor(m => m[i].itemBin)
+                                <td>@Model[i].itemName</td>
+                                @Html.HiddenFor(m => m[i].itemName)
+                                <td>@Model[i].department</td>
+                                @Html.HiddenFor(m => m[i].department)
+                                <td>@Model[i].approvalDate</td>
+                                @Html.HiddenFor(m => m[i].approvalDate)
+                                <td>@Model[i].requisitionID</td>
+                                @Html.HiddenFor(m => m[i].requisitionID)
+                                <td>@Model[i].reqQty</td>
+                                @Html.HiddenFor(m => m[i].reqQty)
+                                <td>@Model[i].allocateQty</td>
+                                @Html.HiddenFor(m => m[i].allocateQty)
+                                <td>@Model[i].adjQty</td>
+                                @Html.HiddenFor(m => m[i].adjQty)
+                                <td>@Model[i].stockQty</td>
+                                @Html.HiddenFor(m => m[i].stockQty)
+                                @Html.HiddenFor(m => m[i].IsAdjusted)
+                                @Html.HiddenFor(m => m[i].itemID)
+                                @Html.HiddenFor(m => m[i].remark)
+                            </tr>
+
+                        }
+                    </table>
+                </div>
+                <br />
+                <div class="button-container-right">
+                    <a class="button button--size-m button--antiman button--round-m button--text-medium" href='@Url.Action("RetrievalHistory", "Retrieval")'><i></i><span>Back</span></a>
+                    &nbsp;&nbsp;
+                    @if (ViewBag.DisburseCheck == false)
+                    {
+                        <button type="submit" value="GenerateDisbursement" name=GenerateDisbursement formaction=@Url.Action("GenerateDisbursement", "Disbursement") formmethod="post" class="button button--size-s button--antiman button--round-m button--text-medium"> Generate Disbursement List</button>
+                    }
+                </div>
+            }
+        </div>
+
+        <!--Tab for RL Summary-->
+        <div class="tab-pane fade in" id="RetrievalListSummary">
+            <h1>Stationery Retrieval List Summary</h1>
+
+            @using ADProjGp2_LogicUStationeryStore.Models
+            @{
+            List<RetrievalListSummaryModel> retSum = (List<RetrievalListSummaryModel>)ViewBag.retSum;
+            }
+            <div>
+                <table id="RDlist" style="min-width:1110px;">
+                    <tr>
+                        <th style="width:80px;">Bin# </th>
+                        <th>Item Code</th>
+                        <th>Stationery Description</th>
+                        <th>Retrieve Quantity</th>
+                        <th>Inventory Quantity</th>
+                    </tr>
+                    @for (int j = 0; j < retSum.Count; j++)
+                    {
+                        <tr>
+                            <td>@retSum[j].itemBin</td>
+                            <td>@retSum[j].itemID</td>
+                            <td>@retSum[j].itemName</td>
+                            <td>@retSum[j].retrieveQty</td>
+                            <td>@retSum[j].stockQty</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        @{
+            TempData["IsRetSaved"] = true;
+        }
+    </div>
+
+
+
+</body>
+</html>

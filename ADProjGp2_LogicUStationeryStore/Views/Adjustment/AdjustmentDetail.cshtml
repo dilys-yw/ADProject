@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "AdjustmentDetail";
+}
+
+@model ADProjGp2_LogicUStationeryStore.Models.AdjustmentVoucherViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        h3 span {
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adjustment Voucher</h1>
+    <h3>Adjustment Voucher #: <span style="margin-left:5px;">@Model.voucherID</span></h3>
+    <h3>Adjustment Voucher Date: <span style="margin-left:5px;">@Model.voucherDate</span></h3>
+    <h3>Adjustment Voucher Status: <span style="margin-left:5px;">@Model.status</span></h3>
+    <h3>Request Employee: <span style="margin-left:5px;">@Model.clerkIDName </span></h3>
+    <h3>Request Supervisor: <span style="margin-left:5px;">@Model.supervisorIDName </span></h3>
+
+    <h3>Adjustment Voucher Value: <span style="margin-left:5px;">@Model.adjustmentValue </span></h3>
+
+    <form>
+        <table id="RDlist">
+            <tr>
+                <th>@Html.DisplayName("Item Name & ID")</th>
+                <th>@Html.DisplayName("Quantity")</th>
+                <th>@Html.DisplayName("Remark")</th>
+                @Html.HiddenFor(m => m.clerkIDName)
+                @Html.HiddenFor(m => m.managerIDName)
+                @Html.HiddenFor(m => m.supervisorIDName)
+                @Html.HiddenFor(m => m.voucherID)
+                @Html.HiddenFor(m => m.voucherDate)
+                @Html.HiddenFor(m => m.needAuthority)
+                @Html.HiddenFor(m => m.status)
+            </tr>
+            @using ADProjGp2_LogicUStationeryStore.Models
+            @{
+                SSISEntities db = new SSISEntities();
+            }
+            @for (int i = 0; i < Model.itemList.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Model.itemList[i].itemDescription (@Model.itemList[i].itemID)
+                    </td>
+                    <td>
+                        @Model.itemList[i].itemQty
+                    </td>
+                    <td>
+                        @Model.itemList[i].remark
+                    </td>
+                    @Html.HiddenFor(m => m.itemList[i].itemID)
+                    @Html.HiddenFor(m => m.itemList[i].itemDescription)
+                    @Html.HiddenFor(m => m.itemList[i].itemDisburseQty)
+                    @Html.HiddenFor(m => m.itemList[i].itemStoreQty)
+                    @Html.HiddenFor(m => m.itemList[i].itemQty)
+                    @Html.HiddenFor(m => m.itemList[i].remark)
+                    @Html.HiddenFor(m => m.itemList[i].itemInventoryLocation)
+                </tr>
+            }
+        </table>
+
+        <div class="button-container-right">
+            @Html.ActionLink("Back", "AdjustmentHistory", null, new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+        </div>
+
+        @if (!Model.status.Contains("Approved") && Session["Role"].ToString() != "clerk")
+        {
+            if (Model.needAuthority == true && Session["Role"].ToString() == "manager")
+            {
+                <div class="button-container-right">
+                    <button type="submit" formaction=@Url.Action("AdjustmentVoucherApprove", "Adjustment") formmethod="post" class="button button--size-m button--antiman button--round-m button--text-medium">Approve Adjustment Voucher</button>
+                </div>
+            }
+            else if (Model.needAuthority == false && Session["Role"].ToString() == "supervisor")
+            {
+                <div class="button-container-right">
+                    <button type="submit" formaction=@Url.Action("AdjustmentVoucherApprove", "Adjustment") formmethod="post" class="button button--size-m button--antiman button--round-m button--text-medium">Approve Adjustment Voucher</button>
+                </div>
+            }
+        }
+    </form>
+</body>
+</html>

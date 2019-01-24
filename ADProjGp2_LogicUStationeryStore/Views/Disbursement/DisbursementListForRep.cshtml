@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "DisbursementForRep";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<ADProjGp2_LogicUStationeryStore.Disbursement>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisbursementListl</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        #RDlist th {
+            word-break: keep-all;
+        }
+
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+        }
+
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1>Disbursement List</h1>
+        @using (@Html.BeginForm())
+        {
+            <div>
+                <table id="RDlist" style="min-width:1110px;">
+                    <tr>
+                        <th>Disbursement ID </th>
+                        <th>Disburse Date</th>
+                        <th>Representative Name & ID</th>
+                        <th>Disbursement Status</th>
+                    </tr>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                    <tr>
+                        <td>@Html.ActionLink(Model[i].disbursementId, "DisbursementDetailForRep", new { disburseID = Model[i].disbursementId }, new { @style = "text-decoration:underline;" })</td>
+                        @Html.HiddenFor(m => m[i].disbursementId)
+                        <td>@Model[i].disburseDate</td>
+                        @Html.HiddenFor(m => m[i].disburseDate)
+                        <td>@Model[i].repID</td>
+                        @Html.HiddenFor(m => m[i].repID)
+                        <td>@Model[i].status</td>
+                        @Html.HiddenFor(m => m[i].status)
+                    </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+</body>
+</html>

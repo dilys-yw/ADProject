@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "DeliveryOrderEntry";
+}
+
+@model ADProjGp2_LogicUStationeryStore.Models.DeliverOrderViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeliveryOrderEntry</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        .infoTable {
+            border-collapse: initial;
+        }
+
+            .infoTable tr td {
+                font-weight: 800;
+            }
+
+                .infoTable tr td span {
+                    font-weight: 300;
+                }
+
+        .listTable thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        .listTable tbody th {
+            background-color: #d6dfe5;
+            padding-left: 10px;
+        }
+
+        .listTable tbody td {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .listTable {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-body" style="padding-bottom:0px;min-width:400px;">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="min-width:400px;text-align:center;font-size:25px">Delivery Order</div>
+            <div class="panel-body">
+                @using (@Html.BeginForm())
+                {
+                    <div>
+                        <table style="min-width:860px;" class="infoTable">
+                            <tr>
+                                <td><h3 style="text-align:left;padding-left:0;">PO Reference: <span>@Model.poNumber</span></h3></td>
+                                <td><h3>PO Date: <span>@Model.orderDate</span></h3></td>
+                                <td style="width:120px;"><h3>Clerk ID: <span>@Model.clerkID</span></h3></td>
+                                <td><h3>Supplier ID: <span>@Model.supplierID</span></h3></td>
+                                <td><h3>Order Remark: <span>@Model.orderRemark</span></h3></td>
+
+                                @Html.HiddenFor(m => m.orderRemark)
+                                @Html.HiddenFor(m => m.poNumber)
+                                @Html.HiddenFor(m => m.orderDate)
+                                @Html.HiddenFor(m => m.clerkID)
+                                @Html.HiddenFor(m => m.supplierID)
+                                @Html.HiddenFor(m => m.status)
+                            </tr>
+
+                            <tr>
+                                <td colspan="3"><h3 style="text-align:left;padding-left:0;">DO Reference: <input type="text" placeholder="Please enter Delivery Order Number" id="doNumber" name="doNumber" size="50" required /></h3></td>
+                                <td colspan="2"><h3 style="text-align:left;padding-left:0;">DO Date: <input type="date" id="doDate" name="doDate" required /></h3></td>
+                                @Html.HiddenFor(m => m.doDate)
+                                @Html.HiddenFor(m => m.doNumber)
+                            </tr>
+                            <tr>
+                                <td colspan="5" height="70px;"><h3 style="vertical-align:central;text-align:left;padding-left:0;">Delivery Order Remarks: </h3><textarea name="deliverRemark" rows="3" cols="50" placeholder="Remarks..."></textarea></td>
+                                @Html.HiddenFor(m => m.deliverRemark)
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <table class="listTable" style="min-width:860px;">
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Purchase Qty</th>
+                                <th>Deliver Qty</th>
+                                <th>Remark</th>
+                            </tr>
+
+                            @for (int i = 0; i < Model.dovmdList.Count; i++)
+                {
+                                <tr>
+                                    <td>
+                                        @Model.dovmdList[i].itemNumber - @Model.dovmdList[i].itemDescription (@Model.dovmdList[i].itemUOM)
+                                    </td>
+                                    @Html.HiddenFor(m => m.dovmdList[i].itemNumber)
+                                    @Html.HiddenFor(m => m.dovmdList[i].itemDescription)
+                                    @Html.HiddenFor(m => m.dovmdList[i].itemUOM)
+                                    <td>@Model.dovmdList[i].purchaseQty</td>
+                                    @Html.HiddenFor(m => m.dovmdList[i].purchaseQty)
+                                    @if (Model.dovmdList[i].IsMatched == true)
+                                    {
+                                        <td>@Model.dovmdList[i].deliverQty</td>
+                                        @Html.HiddenFor(m => m.dovmdList[i].deliverQty)
+                                    }
+                                    else
+                                    {
+                                        <td>@Html.EditorFor(m => m.dovmdList[i].deliverQty)</td>
+                                        @Html.HiddenFor(m => m.dovmdList[i].deliverQty)
+                                    }
+                                    <td>@Model.dovmdList[i].remark</td>
+                                    @Html.HiddenFor(m => m.dovmdList[i].remark)
+                                    @Html.HiddenFor(m => m.dovmdList[i].podID)
+                                    @Html.HiddenFor(m => m.dovmdList[i].IsMatched)
+
+                                </tr>
+
+                            }
+                        </table>
+                    </div>
+                    <br />
+                    <div class="button-container">
+                        <a href="~/Purchase/PurchaseOrderDetail" class="button button--size-m button--antiman button--round-m button--text-medium">Back</a>
+                        <button type="submit" class="button button--size-m button--antiman button--round-m button--text-medium" formaction=@Url.Action("DeliveryOrderEntryConfirm", "DeliveryOrder") formmethod="post">Review Delivery Order Submission</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

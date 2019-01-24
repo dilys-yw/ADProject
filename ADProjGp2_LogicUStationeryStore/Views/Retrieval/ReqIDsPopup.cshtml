@@ -1,0 +1,187 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<ADProjGp2_LogicUStationeryStore.Models.RetListSummary>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PopupWindow</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        #btnPre {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-right: 30px solid black;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid transparent;
+            background-color: transparent;
+            outline: none;
+        }
+
+
+        #btnNext {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-left: 30px solid black;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid transparent;
+            background-color: transparent;
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="voucherPage tab-pane fade in" hidden="hidden">
+                <fieldset>
+                    <legend>@Model[i].retID</legend>
+                    @for (int j = 0; j < Model[i].reqIDs.Count; j++)
+                    {
+                        <br />
+                        <a href = '@Url.Action("ReqFormDetail", "Requisition", new { id = Model[i].reqIDs[j]})'>@Model[i].reqIDs[j]</a>
+                    }
+                </fieldset>
+            </div>
+        }
+    </div>
+        <div class="button-container" style="padding-top:10px;">
+            <button id="btnPre" style="margin-right:10px;"></button>
+            <input type="text" id="inpNum" style="width:30px;font-size:18px;" />
+            <span style="font-size:20px;"> | </span>
+            <span style="font-size:20px;" id="vouchersQty"></span>
+            <button id="btnNext" style="padding-left:10px;margin-left:10px;"></button>
+        </div>
+
+
+
+
+        <script>
+
+            var voucherList = document.getElementsByClassName("voucherPage");
+            var voucherNum = voucherList.length;
+            var inpNum = document.getElementById("inpNum");
+            //initialization
+
+            $(document).ready(function () {
+                //giveNum();
+                getVoucherQty();
+                var inpNum = document.getElementById("inpNum");
+                var url = location.search;
+                var URLretID = url.toString().substr(7);
+                //var pageNum = 1;
+                var retIDs = document.getElementsByTagName("legend");
+                for (var i = 0; i < retIDs.length; i++) {
+                    if (retIDs[i].innerHTML == URLretID) {
+                        inpNum.value = i + 1;
+                        break;
+                    }
+                }
+                voucherList[inpNum.value - 1].classList.add("active");
+                voucherList[inpNum.value - 1].removeAttribute("hidden");
+            });
+
+
+            //how many pending vouchers to handle
+            function getVoucherQty() {
+                var vNumDisplay = document.getElementById("vouchersQty");
+                vNumDisplay.innerHTML = voucherNum;
+            }
+
+
+            //previous page btn
+            var btnPre = document.getElementById("btnPre");
+            btnPre.addEventListener("click", function () {
+                if (inpNum.value > 1) {
+                    inpNum.value = inpNum.value - 1;
+                }
+                for (var i = 0; i < voucherNum; i++) {
+                    if (+inpNum.value == i + 1) {
+                        voucherList[i].removeAttribute("hidden");
+                        voucherList[i].classList.add("active");
+                        voucherList[i + 1].setAttribute("hidden", "hidden");
+                        voucherList[i + 1].classList.remove("active");
+
+                    }
+                }
+            });
+
+            //next page btn
+            var btnNext = document.getElementById("btnNext");
+            btnNext.addEventListener("click", function () {
+                if (inpNum.value < voucherNum) {
+                    inpNum.value = +inpNum.value + 1;
+                }
+                for (var i = 0; i < voucherNum; i++) {
+                    if (+inpNum.value == i + 1) {
+                        voucherList[i].removeAttribute("hidden");
+                        voucherList[i].classList.add("active");
+                        voucherList[i - 1].setAttribute("hidden", "hidden");
+                        voucherList[i - 1].classList.remove("active");
+                    }
+                }
+            });
+
+
+            //jump to
+            var nowPageNum = 0;
+            $("#inpNum").focus(function () {
+                nowPageNum = inpNum.value;
+            });
+
+            $("#inpNum").focusout(function () {
+                if (+inpNum.value <= voucherNum && + inpNum.value >= 1) {
+                    if (+inpNum.value != +nowPageNum) {
+                        voucherList[+inpNum.value - 1].removeAttribute("hidden");
+                        voucherList[+nowPageNum - 1].setAttribute("hidden", "hidden");
+                        voucherList[+nowPageNum - 1].classList.remove("active");
+                        voucherList[+inpNum.value - 1].classList.add("active");
+                    }
+                } else {
+                    inpNum.value = +nowPageNum;
+                }
+                inpNum.blur();
+            });
+
+            $('#inpNum').bind('keyup', function (event) {
+                if (event.keyCode == "13") {
+                    //if key ENTER is pressed
+                    if (+inpNum.value <= voucherNum && + inpNum.value >= 1) {
+                        if (+inpNum.value != +nowPageNum) {
+                            voucherList[+nowPageNum - 1].classList.remove("active");
+                            voucherList[+inpNum.value - 1].classList.add("active");
+                        }
+                    } else {
+                        inpNum.value = +nowPageNum;
+                    }
+                    $('#inpNum').click();
+                    inpNum.blur();
+                }
+
+                //if (event.keyCode == "13") {
+                //    //if key ENTER is pressed
+                //    if (+inpNum.value <= voucherNum && +inpNum.value >= 1) {
+                //        for (var i = 0; i < voucherNum; i++) {
+                //            //console.log(voucherList[i]);
+                //            voucherList[i].classList.remove("active");
+                //        }
+                //        voucherList[+inpNum.value - 1].classList.add("active");
+                //        $('#inpNum').click();
+                //    } else {
+                //        inpNum.value = +nowPageNum;
+                //    }
+                //}
+            });
+        </script>
+
+</body>
+</html>

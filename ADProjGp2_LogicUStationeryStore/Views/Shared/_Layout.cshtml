@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>SSIS</title>
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Shared/font-awesome.min.css" />
+
+    @RenderSection("styles",required:false)
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+    <link rel="stylesheet" href="~/Content/Shared/ace.min.css" />
+    <link rel="stylesheet" href="~/Content/Shared/ace-rtl.min.css" />
+    <link rel="stylesheet" href="~/Content/Shared/ace-skins.min.css" />
+    <script src="~/Scripts/Shared/ace-extra.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-default" id="navbar">
+        <script type="text/javascript">
+            try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+        </script>
+
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand">
+                    <small>
+                        @*SA46 Team2 ADProj*@
+                        Logic University---Stationery Store Inventory System 
+                    </small>
+                </a>
+            </div>
+            @{ 
+                string hellouser = "Guest";
+                if (Session != null)
+                {
+                    hellouser = Session["Username"].ToString();
+                }
+            }
+            <div class="navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">                
+                    <li class="light-blue">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle" style="width:160px">
+                            @*<img class="nav-user-photo" src="~/Content/assets/avatars/user.jpg" alt="Jason's Photo" />*@
+                            <span class="user-info" style="width:150px">
+                                <small>Welcome,</small>@hellouser
+                            </span>
+                            <i class="icon-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="~/Home/ChangePassword">
+                                    <i class="icon-user"></i>
+                                    Change Password
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li id="logout">
+                                <a  onclick="logout()">
+                                    <i class="icon-off"></i>
+                                    Logout
+                                </a>
+                                <script>
+                                    function logout() {
+                                        var logout = document.getElementById("logout");
+                                        logout.addEventListener("click", function () {
+                                            //alert("Are you sure you want to logout?");
+                                            if (confirm("Are you sure you want to logout?"))
+                                            { window.location.href = "../Home/Login" }
+                                        });
+                                    }
+                                </script>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.check('main-container', 'fixed') } catch (e) { }
+        </script>
+
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            @Html.Partial("_LeftMenu")
+            @*@Html.Partial("_LeftMenu - Test")*@
+
+            <div class="main-content">
+                <script type="text/javascript">
+                    try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+                </script>
+                @RenderBody()
+            </div>
+
+            @*Set Style Div*@
+            @*<div class="ace-settings-container" id="ace-settings-container">
+                <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                    <i class="icon-cog bigger-150"></i>
+                </div>
+
+                <div class="ace-settings-box" id="ace-settings-box">
+                    <div>
+                        <div class="pull-left">
+                            <select id="skin-colorpicker" class="hide">
+                                <option data-skin="default" value="#438EB9">#438EB9</option>
+                                <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                                <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                            </select>
+                        </div>
+                        <span>&nbsp; 选择皮肤</span>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                        <label class="lbl" for="ace-settings-navbar"> 固定导航条</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                        <label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                        <label class="lbl" for="ace-settings-breadcrumbs">固定面包屑</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+                        <label class="lbl" for="ace-settings-rtl">切换到左边</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                        <label class="lbl" for="ace-settings-add-container">
+                            切换窄屏
+                            <b></b>
+                        </label>
+                    </div>
+                </div>
+            </div>*@<!-- /#ace-settings-container -->
+        </div><!-- /.main-container-inner -->
+
+
+        @*Return Top*@
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="icon-double-angle-up icon-only bigger-110"></i>
+        </a>
+    </div><!-- /.main-container -->
+    <!-- basic scripts -->
+    <!--[if !IE]> -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='~/Scripts/jquery-3.3.1.min.js'>" + "<" + "script>");
+    </script>
+
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='~/Scripts/Shared/jquery.mobile.custom.min.js'>" + "<" + "script>");
+    </script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/Shared/typeahead-bs2.min.js"></script>
+
+   
+    @RenderSection("scripts", required: false)
+
+
+    <!-- ace scripts -->
+
+    <script src="~/Scripts/Shared/ace-elements.min.js"></script>
+    <script src="~/Scripts/Shared/ace.min.js"></script>
+
+    <!-- inline scripts related to this page -->
+
+    @RenderSection("inlineScripts",required:false)
+
+    <div style="display:none">
+        <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
+    </div>
+</body>
+</html>

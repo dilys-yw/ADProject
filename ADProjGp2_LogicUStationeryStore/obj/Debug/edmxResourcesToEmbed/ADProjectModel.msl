@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SSISEntitiesModelStoreContainer" CdmEntityContainer="SSISEntities">
+    <EntitySetMapping Name="Adjustments">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.Adjustment">
+        <MappingFragment StoreEntitySet="Adjustment">
+          <ScalarProperty Name="voucherId" ColumnName="voucherId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="clerk" ColumnName="clerk" />
+          <ScalarProperty Name="supervisor" ColumnName="supervisor" />
+          <ScalarProperty Name="needAuthority" ColumnName="needAuthority" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="adjustmentValue" ColumnName="adjustmentValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdjustmentDetails">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.AdjustmentDetail">
+        <MappingFragment StoreEntitySet="AdjustmentDetails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="voucherId" ColumnName="voucherId" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogues">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.Catalogue">
+        <MappingFragment StoreEntitySet="Catalogue">
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="unitOfMeasure" ColumnName="unitOfMeasure" />
+          <ScalarProperty Name="reorderQuantity" ColumnName="reorderQuantity" />
+          <ScalarProperty Name="reorderLevel" ColumnName="reorderLevel" />
+          <ScalarProperty Name="firstSupplier" ColumnName="firstSupplier" />
+          <ScalarProperty Name="secondSupplier" ColumnName="secondSupplier" />
+          <ScalarProperty Name="thirdSupplier" ColumnName="thirdSupplier" />
+          <ScalarProperty Name="bin" ColumnName="bin" />
+          <ScalarProperty Name="quantityInUnit" ColumnName="quantityInUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionPoints">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.CollectionPoint">
+        <MappingFragment StoreEntitySet="CollectionPoint">
+          <ScalarProperty Name="locationName" ColumnName="locationName" />
+          <ScalarProperty Name="clerkId" ColumnName="clerkId" />
+          <ScalarProperty Name="collectTime" ColumnName="collectTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryOrders">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.DeliveryOrder">
+        <MappingFragment StoreEntitySet="DeliveryOrder">
+          <ScalarProperty Name="doId" ColumnName="doId" />
+          <ScalarProperty Name="poId" ColumnName="poId" />
+          <ScalarProperty Name="deliveryDate" ColumnName="deliveryDate" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryOrderDetails">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.DeliveryOrderDetail">
+        <MappingFragment StoreEntitySet="DeliveryOrderDetails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="doId" ColumnName="doId" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeptCollectionDetails">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.DeptCollectionDetail">
+        <MappingFragment StoreEntitySet="DeptCollectionDetails">
+          <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+          <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+          <ScalarProperty Name="collectionPoint" ColumnName="collectionPoint" />
+          <ScalarProperty Name="representative" ColumnName="representative" />
+          <ScalarProperty Name="authorisedPerson" ColumnName="authorisedPerson" />
+          <ScalarProperty Name="validDateStart" ColumnName="validDateStart" />
+          <ScalarProperty Name="validDateEnd" ColumnName="validDateEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disbursements">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.Disbursement">
+        <MappingFragment StoreEntitySet="Disbursement">
+          <ScalarProperty Name="disbursementId" ColumnName="disbursementId" />
+          <ScalarProperty Name="disburseDate" ColumnName="disburseDate" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="repID" ColumnName="repID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="adjustmentID" ColumnName="adjustmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="disburseQuantity" ColumnName="disburseQuantity" />
+          <ScalarProperty Name="storeQuantity" ColumnName="storeQuantity" />
+          <ScalarProperty Name="adjQuantity" ColumnName="adjQuantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrders">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.PurchaseOrder">
+        <MappingFragment StoreEntitySet="PurchaseOrder">
+          <ScalarProperty Name="poId" ColumnName="poId" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="storeClerk" ColumnName="storeClerk" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderDetails">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.PurchaseOrderDetail">
+        <MappingFragment StoreEntitySet="PurchaseOrderDetails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="poId" ColumnName="poId" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requisitions">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.Requisition">
+        <MappingFragment StoreEntitySet="Requisition">
+          <ScalarProperty Name="requisitionId" ColumnName="requisitionId" />
+          <ScalarProperty Name="employee" ColumnName="employee" />
+          <ScalarProperty Name="approvalPerson" ColumnName="approvalPerson" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="requestDate" ColumnName="requestDate" />
+          <ScalarProperty Name="approvalDate" ColumnName="approvalDate" />
+          <ScalarProperty Name="retrievalId" ColumnName="retrievalId" />
+          <ScalarProperty Name="disbursementId" ColumnName="disbursementId" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequisitionDetails">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.RequisitionDetail">
+        <MappingFragment StoreEntitySet="RequisitionDetails">
+          <ScalarProperty Name="transId" ColumnName="transId" />
+          <ScalarProperty Name="requisitionId" ColumnName="requisitionId" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="requestQty" ColumnName="requestQty" />
+          <ScalarProperty Name="retrieveQty" ColumnName="retrieveQty" />
+          <ScalarProperty Name="adjustQty" ColumnName="adjustQty" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Retrievals">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.Retrieval">
+        <MappingFragment StoreEntitySet="Retrieval">
+          <ScalarProperty Name="retrievalId" ColumnName="retrievalId" />
+          <ScalarProperty Name="clerkId" ColumnName="clerkId" />
+          <ScalarProperty Name="retrievalCreationDate" ColumnName="retrievalCreationDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialRequests">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.SpecialRequest">
+        <MappingFragment StoreEntitySet="SpecialRequest">
+          <ScalarProperty Name="specialId" ColumnName="specialId" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="requestQty" ColumnName="requestQty" />
+          <ScalarProperty Name="requisitionId" ColumnName="requisitionId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="gstNumber" ColumnName="gstNumber" />
+          <ScalarProperty Name="supplierName" ColumnName="supplierName" />
+          <ScalarProperty Name="contactName" ColumnName="contactName" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="faxNumber" ColumnName="faxNumber" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierQuotations">
+      <EntityTypeMapping TypeName="SSISEntitiesModel.SupplierQuotation">
+        <MappingFragment StoreEntitySet="SupplierQuotation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

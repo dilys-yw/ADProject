@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+
+
+@model ADProjGp2_LogicUStationeryStore.Models.ManagerWelcomePageModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Disbursement List Summary</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        table thead, table tr {
+            /*border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: #808080;*/
+        }
+
+        table tbody th {
+            /*background-color: #d6dfe5;*/
+            background-color: rgba(214, 223, 229, 0.30);
+            padding-left: 10px;
+            text-align: center;
+        }
+
+        table tbody td {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        table {
+            /*border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #808080;
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: #808080;
+        border-right-width: 1px;
+        border-right-style: solid;
+        border-right-color: #808080;*/
+            table-layout: fixed;
+            width: 80%;
+            position: relative;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: medium;
+            min-width: 660px;
+        }
+
+        b {
+            color: coral;
+        }
+
+        fieldset {
+            position: relative;
+            padding: 15px;
+            margin: 10px 12.5%;
+            width: 75%;
+            color: #333;
+            border: #06c dashed 1px;
+            min-width: 755px;
+        }
+
+        legend {
+            color: #06c;
+            font-weight: 800;
+            background: #fff;
+            padding: 3px 6px;
+            width: auto;
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="padding-left:20px;">  Welcome @Session["DepartmentID"].ToString() > @Session["Role"].ToString() >@Session["EmployeeName"].ToString()</h2>
+
+    <br />
+
+    @if (Model.AdjustmentWPC.Count > 0)
+    {
+        using (@Html.BeginForm())
+        {
+            <div>
+                <fieldset>
+                    <legend>You have <b>Adjustment Vouchers</b> awaiting approval</legend>
+                    <table class="table-hover">
+                        <tr>
+                            <th>Adjustment ID </th>
+                            <th>Adjustment Date</th>
+                        </tr>
+                        @for (int i = 0; i < Model.AdjustmentWPC.Count; i++)
+                    {
+                            <tr>
+                                <td>@Html.ActionLink(Model.AdjustmentWPC[i].AdjustmentID, "AdjustmentDetail", "Adjustment", new { adjustmentID = Model.AdjustmentWPC[i].AdjustmentID }, new { @style = "text-decoration:underline;" })</td>
+                                @Html.HiddenFor(m => m.AdjustmentWPC[i].AdjustmentID)
+                                <td>@Model.AdjustmentWPC[i].AdjustmentDate</td>
+                                @Html.HiddenFor(m => m.AdjustmentWPC[i].AdjustmentDate)
+                            </tr>
+                        }
+                    </table>
+
+                </fieldset>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>You have no adjustment vouchers pending</h3>
+    }
+
+</body>
+</html>

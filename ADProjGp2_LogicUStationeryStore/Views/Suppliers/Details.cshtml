@@ -1,0 +1,91 @@
+﻿@model ADProjGp2_LogicUStationeryStore.Supplier
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        .dl-horizontal {
+            font-size: 20px;
+        }
+
+            .dl-horizontal dt {
+                width: 180px;
+            }
+
+            .dl-horizontal dd {
+                margin-left: 270px;
+            }
+    </style>
+</head>
+<body>
+    <h1>Detail</h1>
+    <hr />
+    <div class="button-container">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.gstNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.gstNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.supplierName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.supplierName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.contactName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.contactName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.faxNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.faxNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="button-container">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.supplierId }, new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+        @Html.ActionLink("Back to List", "Index", "", new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+    </div>
+
+</body>
+</html>

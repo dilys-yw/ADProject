@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Not enough inventory to perform action";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<ADProjGp2_LogicUStationeryStore.Models.InsufficientStockModel>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inventory Insufficient</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @*<script type="text/javascript">
+        window.setTimeout(function() {
+            window.location.href = '@Url.Action("RetrievalListPreparation", "Retrieval")';
+        }, 5000);
+        </script>*@
+    <div>
+        <h3>
+            Opps.. you reached this page because <br /><br />
+            1) There is not enough inventory stock for the selected requisition (s) <br /><br />
+        </h3>
+    </div>
+
+    @using (@Html.BeginForm())
+    {
+        <div>
+            <table>
+                <tr>
+                    <th>Requisition ID</th>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Request Qty</th>
+                    <th>Inventory Stock Qty</th>
+                </tr>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+
+                    <tr>
+                        <td>@Model[i].requisitionID</td>
+                        <td>@Model[i].itemID</td>
+                        <td>@Model[i].itemName</td>
+                        <td>@Model[i].requestQty</td>
+                        <td>@Model[i].stockQty</td>
+                    </tr>
+                }
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        @Html.ActionLink("Back", "RetrievalListPreparation", null, new { @class = "button button--size-s button--antiman button--round-m button--text-medium" })
+                            </td>
+                    </tr>
+            </table>
+        </div>
+        <br />
+
+
+
+            }
+    </body>
+</html>

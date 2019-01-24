@@ -1,0 +1,92 @@
+﻿@model List<ADProjGp2_LogicUStationeryStore.Models.PurchaseOrderViewModel>
+@{
+    ViewBag.Title = "PODetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+            padding-left: 10px;
+        }
+
+        table tbody td {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-body" style="padding-bottom:0px;min-width:400px;">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="min-width:400px;text-align:center;font-size:25px">Purchase Order Details</div>
+            <div class="panel-body" >
+
+                <h3>Purchase Order#:<span style="margin-left:8px;font-weight:300;">@ViewBag.ValuePairs["PONumber"]</span></h3>
+                <h3>Order By:<span style="margin-left:8px;font-weight:300;"> @ViewBag.ValuePairs["EmployeeName"]</span></h3>
+                <h3>Date of Order:<span style="margin-left:8px;font-weight:300;">@ViewBag.ValuePairs["PODate"]</span>
+                    <span style="float:right;width:40%">Status:<a style="margin-left:10px;">@ViewBag.ValuePairs["Status"]</a></span>
+                </h3>
+
+                <!---------------------------------------------------Requisition Detail Table--------------------------------------------------->
+                @*Table*@
+                <br />
+                <div>
+                    <table class="content-wrapper" style="width:75%;">
+                        <tr>
+                            <th>ItemName</th>
+                            <th>Quantity</th>
+                            <th>Price($)</th>
+                            <th>Amount($)</th>
+                        </tr>
+
+                        @for (var i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model[i].Description</td>
+                                <td>@Model[i].SQuantity</td>
+                                <td>@Model[i].Price.ToString("C")</td>
+                                <td>@Model[i].Amount.ToString("C")</td>
+                            </tr>
+                        }
+                    </table>
+                    <div class="button-container-right" style="padding:0;margin-right:12.5%;width:auto;">
+                        <p><b>Total Amount:</b>  @ViewBag.ValuePairs["TotalAmt"].ToString("C")</p>
+                    </div>
+                    @*<h3 style="position:relative;float:right;padding:2px;"><b>Total Amount:</b><span style="margin-left:10px;">@ViewBag.ValuePairs["TotalAmt"].ToString("C")</span></h3>*@
+                </div>
+                @using (@Html.BeginForm())
+                {
+                <div class="button-container" style="clear:right;">
+                    <a href="~/Purchase/PurchaseOrderList" class="button button--size-m button--antiman button--round-m button--text-medium">Back</a>
+                    &nbsp;&nbsp;
+                    <button type="submit" class="button button--size-m button--antiman button--round-m button--text-medium" formaction=@Url.Action("DeliveryOrderEntry", "DeliveryOrder", new { PONumber = ViewBag.ValuePairs["PONumber"] }) formmethod="post">Enter Delivery Order</button>
+
+                </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

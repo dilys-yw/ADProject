@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "RetrievalList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using ADProjGp2_LogicUStationeryStore.Models
+@model List<ReqListSummary>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        input[type=checkbox]{
+            width:16px;
+            height:16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center;font-family:Calibri">
+        <b>All Requests</b>
+    </h1>
+
+
+@using (Html.BeginForm())
+{
+        <div>
+            <table id="RDlist" style="min-width:880px;">
+                <tr>
+                    <th style="width:25px;"><input type="checkbox" id="cbCloseOpen" checked="checked"></th>
+                    <th>@Html.DisplayName("Department")</th>
+                    <th>@Html.DisplayName("Requestor Name")</th>
+                    <th style="width:285px;">@Html.DisplayName("Requisition Approval Date")</th>
+                    <th style="text-align:center;">Detail</th>
+                </tr>
+
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.CheckBoxFor(m => m[i].IsSelected, new { @checked = true ,@class = "choice"})
+                            @Html.HiddenFor(m => m[i].IsSelected)
+                            @Html.HiddenFor(m => m[i].reqID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m[i].deptName)
+                            @Html.HiddenFor(m => m[i].deptName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m[i].empName)
+                            @Html.HiddenFor(m => m[i].empName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m[i].approveDate)
+                            @Html.HiddenFor(m => m[i].approveDate)
+                        </td>
+                        <td  style="text-align:center;">
+                            <a href=@Url.Action("ReqFormDetail", "Requisition", new { id = Model[i].reqID }) class="btn btn-info">Details</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div class="button-container-right" style="padding-top:40px;">
+            <button type="submit" value="Generate Retrieval List"  formaction=@Url.Action("RetrievalPreSave", "Retrieval") formmethod="post" class="button button--size-s button--antiman button--round-m button--text-medium">Create Retrieval List</button>
+        </div>
+    }
+
+    <script language="javascript">
+        var checkbox = document.getElementById("cbCloseOpen");
+        var checkboxs = document.getElementsByClassName("choice");
+
+        for (var i = 0; i < checkboxs.length; i++) {
+            checkboxs[i].checked = true;
+        }
+
+        checkbox.addEventListener("click", function () {
+            for (var i = 0; i < checkboxs.length; i++) {
+                //************
+                if (checkbox.checked == false) {
+                    checkboxs[i].checked = false;//all checked
+                } else {
+                    checkboxs[i].checked = true;//checked
+                }
+            }
+        });
+
+        for (var i = 0; i < checkboxs.length; i++) {
+            checkboxs[i].addEventListener("click", function () {
+                for (var i = 0; i < checkboxs.length; i++) {
+                    if (checkboxs[i].checked == false) {
+                        checkbox.checked = false;
+                        break;
+                    }
+                }
+            });
+        }
+
+        for (var i = 0; i < checkboxs.length; i++) {
+            checkboxs[i].addEventListener("click", function () {
+                var j = checkedNum();
+                if (j == checkboxs.length) {
+                    checkbox.checked = true;
+                }
+            });
+        }
+
+        function checkedNum() {
+            var j = 0;
+            for (var i = 0; i < checkboxs.length; i++) {
+                if (checkboxs[i].checked == true) {
+                    j++;
+                }
+            }
+            return j;
+        }
+    </script>
+
+</body>
+</html>

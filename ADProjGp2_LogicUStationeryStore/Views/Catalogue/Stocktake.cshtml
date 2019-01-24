@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Stock Take";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<ADProjGp2_LogicUStationeryStore.Models.StockTakeModel>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Stock Take</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/RetrievalList.css" rel="stylesheet" type="text/css" />
+    <style>
+            table thead, table tr {
+                /*border-top-width: 1px;
+                border-top-style: solid;
+                border-top-color: #808080;*/
+            }
+
+            table tbody th {
+                padding-left: 10px;
+            }
+
+            table tbody td {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            table {
+                /*border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: #808080;*/
+                table-layout: fixed;
+                width:100%;
+                position:relative;
+            }
+        </style>
+</head>
+<body>
+    <h1 style="margin-bottom:0;">Stock Take</h1>
+    <div class="button-container-right" style="padding-top:0;padding-bottom:0;">
+        <a href="javascript:closeAll()" class="button button--size-m button--antiman button--round-m button--text-medium" id="btnCloseOpen"><i></i><span>Close All</span></a>
+    </div>
+    <br /><br /><br /><br /><br /><br />
+    @using (Html.BeginForm("Stocktake", "Catalogue", FormMethod.Post))
+    {
+        <div id="RLlist">
+            <table>
+                <tr>
+                    <th width="110px">Bin #<br />Item Code</th>
+                    <th>Item Description</th>
+                    <th>Qty Pending <br />Disbursement Collection</th>
+                    <th>
+                        Qty in Adjustment<br /><span style="font-weight:100;">(Awaiting approval)</span>
+                    </th>
+                    <th>
+                        Stock Adjustment<br />
+                        <span style="font-weight:100;">
+                            (Positive # add to stock) <br />
+                            (Negative # remove from stock)<br />
+                            (0 if no discrepancy)
+                        </span>
+                    </th>
+                    <th>Item Inventory Stock Qty</th>
+                </tr>
+            </table>
+        </div>
+        for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="collapsible">
+                <table>
+                    <tr>
+                        <th><b>BIN NUMBER : @Html.DisplayFor(m => m[i].binNumber)</b></th>
+                        @Html.HiddenFor(m => m[i].binNumber)
+                        @Html.HiddenFor(m => m[i].stocktakeClerk)
+                        @Html.HiddenFor(m => m[i].stocktakeDate)
+                        @Html.HiddenFor(m => m[i].binNumber)
+                    </tr>
+                </table>
+            </div>
+                <div class="content">
+                    <table class="table-hover">
+                        @for (int j = 0; j < Model[i].stmdList.Count; j++)
+                    {
+
+                            <tr>
+                                <td width="110px">@Html.DisplayFor(m => m[i].stmdList[j].itemID)</td>
+                                @Html.HiddenFor(m => m[i].stmdList[j].itemID)
+                                <td>@Html.DisplayFor(m => m[i].stmdList[j].itemDescription)</td>
+                                @Html.HiddenFor(m => m[i].stmdList[j].itemDescription)
+                                <td>@Html.DisplayFor(m => m[i].stmdList[j].disburseQty)</td>
+                                @Html.HiddenFor(m => m[i].stmdList[j].disburseQty)
+                                <td>
+                                    @Html.DisplayFor(m => m[i].stmdList[j].adjQty)
+                                    @if (Model[i].stmdList[j].adjQty < 0)
+                                    {
+                                        <span> (Note that negative means @Math.Abs(Model[i].stmdList[j].adjQty) will be added to Inventory if approved)</span>
+                                    }
+                                </td>
+                                @Html.HiddenFor(m => m[i].stmdList[j].adjQty)
+                                <td>@Html.EditorFor(m => m[i].stmdList[j].UserAdjQty, new { htmlAttributes = new { style = "width:100%;" } })</td>
+                                @Html.HiddenFor(m => m[i].stmdList[j].UserAdjQty)
+                                <td>@Html.DisplayFor(m => m[i].stmdList[j].invQty)</td>
+                                @Html.HiddenFor(m => m[i].stmdList[j].invQty)
+                            </tr>
+                        }
+                    </table>
+                </div>
+        }
+
+        <div class="button-container">
+            <button type="submit" formaction=@Url.Action("StockTakeAdjust", "Catalogue") formmethod="post" class="button button--size-m button--antiman button--round-m button--text-medium">Generate Adjustment Vouchers</button>
+            @Html.ActionLink("Back to Catalogue", "Index", "", new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+        </div>
+
+    }
+
+    <script>
+        //single item list close/open
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = 0;
+                }
+            });
+        }
+
+        //all items list close/open
+        function closeAll() {
+            var allTtile = document.getElementsByClassName("collapsible");
+            var btnCloseOpen = document.getElementById("btnCloseOpen");
+            if (document.getElementById("btnCloseOpen").innerHTML == "<i></i><span>Close All</span>") {
+                //alert("in if");
+                for (i = 0; i < allTtile.length; i++) {
+                    var content = allTtile[i].nextElementSibling;
+                    content.style.maxHeight = 0;
+                }
+                document.getElementById("btnCloseOpen").innerHTML = "<i></i><span>Show All</span>";
+            }
+            else {
+                //alert("in else");
+                for (i = 0; i < allTtile.length; i++) {
+                    var content = allTtile[i].nextElementSibling;
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.maxHeight = null;
+                }
+                document.getElementById("btnCloseOpen").innerHTML = "<i></i><span>Close All</span>";
+            }
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿
+
+@model ADProjGp2_LogicUStationeryStore.Models.DisbursementViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisbursementDetail</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        #RDlist th {
+            word-break: keep-all;
+        }
+
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+            padding-left:10px;
+        }
+        table tbody td {
+            padding-left: 8px;
+            padding-right:8px;
+        }
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1>Disbursement Detail</h1>
+        @using (@Html.BeginForm())
+        {
+            <div>
+                <table id="RDlist" style="min-width:995px;">
+                    <tr>
+                        <th>Disbursement ID </th>
+                        <th>Disburse Date</th>
+                        <th>Department</th>
+                        <th>Collection Point and Time</th>
+                        <th>Representative Name</th>
+                        <th>Remark</th>
+                    </tr>
+                    <tr>
+                        <td>@Model.disbursementID</td>
+                        @Html.HiddenFor(m => m.disbursementID)
+                        <td>@Model.disburseDate</td>
+                        @Html.HiddenFor(m => m.disburseDate)
+                        <td>@Model.requestorDeptID</td>
+                        @Html.HiddenFor(m => m.requestorDeptID)
+                        <td>@Model.collectionPoint (@Model.collectionTime)</td>
+                        @Html.HiddenFor(m => m.collectionPoint)
+                        @Html.HiddenFor(m => m.collectionTime)
+                        <td>@Model.repName</td>
+                        @Html.HiddenFor(m => m.repName)
+                        <td>@Model.status</td>
+                        @Html.HiddenFor(m => m.status)
+                    </tr>
+                </table>
+                <br />
+                <h3>Details Info</h3>
+                @using ADProjGp2_LogicUStationeryStore.Models
+
+                <table style="min-width:1000px;">
+                    <tr>
+                        <th> Requestor Name and ID </th>
+                        <th> Requsition ID</th>
+                        <th> Request Item</th>
+                        <th> Item Description</th>
+                        <th> Request Qty</th>
+                        <th> Receive Qty</th>
+                        <th> Adjustment Qty</th>
+                    </tr>
+                    @for(int i = 0; i < Model.dvmdList.Count; i++)
+                    {
+                    <tr>
+                        <td>@Model.dvmdList[i].requestorName (ID:@Model.dvmdList[i].requestorID)</td>
+                        <td>@Model.dvmdList[i].requisitionID</td>
+                        <td>@Model.dvmdList[i].itemID</td>
+                        <td>@Model.dvmdList[i].itemDescription</td>
+                        <td>@Model.dvmdList[i].requestQty</td>
+                        <td>@Model.dvmdList[i].retrieveQty</td>
+                        <td>
+                        @if (Model.adjustmentID == null && Model.status == "Awaiting Collection")
+                        {
+                           @Html.EditorFor(m => m.dvmdList[i].adjQty, new { htmlAttributes = new { style = "width:100%;", name = "adjQtyInput" } })                            
+                        }
+                        else
+                        {
+                            @Model.dvmdList[i].adjQty
+                        }
+                       </td>
+                        @Html.HiddenFor(m => m.dvmdList[i].adjQty)
+                        @Html.HiddenFor(m => m.dvmdList[i].itemDescription)
+                        @Html.HiddenFor(m => m.dvmdList[i].itemID)
+                        @Html.HiddenFor(m => m.dvmdList[i].requestorID)
+                        @Html.HiddenFor(m => m.dvmdList[i].requestorName)
+                        @Html.HiddenFor(m => m.dvmdList[i].requestQty)
+                        @Html.HiddenFor(m => m.dvmdList[i].requisitionID)
+                        @Html.HiddenFor(m => m.dvmdList[i].retrievalID)
+                        @Html.HiddenFor(m => m.dvmdList[i].retrieveQty)
+                    </tr>
+                    }
+                </table>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            Dictionary<string, string> emplist = (Dictionary<string, string>)Session["EmployeeList"];
+            string total = Model.repName == null ? "Pending Acknowledgement" : "Acknowledged by " + emplist[Model.repName]; int count = total.Count() + 5;
+            string dashes = "";
+            for (int i = 0; i < count; i++)
+            {
+                dashes = dashes + "_";
+            }
+
+            <h3>@dashes</h3>
+
+
+
+            <h3 style="padding-top:-5px;">@total</h3>
+
+            if (Model.adjustmentID == null && Session["Role"].ToString() == "clerk")
+            {
+            <div class="button-container-right">
+                <button type="submit" formaction=@Url.Action("DisbursementAdjustments", "Disbursement") formmethod="post" class="button button--size-m button--antiman button--round-m button--text-medium">Submit Adjustments</button>
+            </div>
+             }
+           }
+    </div>
+    <script>
+        //limit adj QTY
+        var ipt = document.getElementsByName("adjQtyInput");
+        for (var i = 0; i < ipt.length; i++) {
+            ipt[i].addEventListener("keyup", function () {
+                //this.value = this.value.replace(/\./, "");
+                this.value = this.value.replace(/\D/g, "");
+                //this.value = this.value.replace(/^0/, "");
+                this.value = this.value.replace(/^/, "-");
+                if (this.value == "-0") {
+                    this.value = "";
+                }
+            });
+        }
+        var btnSubmitAdj = document.getElementById("btnSubmitAdj");
+        btnSubmitAdj.addEventListener("click", function () {
+            for (var i = 0; i < ipt.length; i++) {
+                if (ipt[i].value == "-") {
+                    ipt[i].value = null;
+                    //alert(ipt[i].value);
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

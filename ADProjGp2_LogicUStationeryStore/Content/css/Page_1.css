@@ -1,0 +1,242 @@
+﻿body {
+    font: 300 13px/18px 'Helvetica Neue', sans-serif;
+    color: #333333;
+    margin: 0px auto;
+    width: 900px;
+    background-color: #222;
+}
+
+header {
+    margin: 0;
+    width: 100%;
+    padding: 0px 20px;
+    height: 30px;
+    background-color: #fff;
+}
+
+.date {
+    display: block;
+    font-size: 10px;
+    padding-left: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: 'Roboto Slab', serif;
+    display: inline-block;
+    font-size: 15px;
+    padding-top: 15px;
+    line-height: 15px;
+    font-weight: 100;
+    margin: 0 5px;
+}
+
+.score {
+    font-weight: 700;
+    padding: 0 0 0 5px;
+}
+
+#content {
+    width: 860px;
+    padding: 0px 40px;
+    background-color: #fcfcfc;
+    overflow: auto;
+    margin: 0px auto;
+}
+
+#chart-controls {
+    position: relative;
+    top: 46px;
+    left: 20px;
+}
+
+input {
+    margin-left: 0px;
+}
+
+#shot-details {
+    width: 155px;
+    float: right;
+    margin-top: 70px;
+}
+
+    #shot-details h5 {
+        font-size: 13px;
+        font-weight: 200;
+        padding: 5px 10px;
+        font-family: 'Roboto Slab', serif;
+        border: 1px solid #eee;
+        border-radius: 2px;
+        margin: 15px 0px;
+    }
+
+    #shot-details p {
+        margin: 0px 5px;
+        font-size: 12px;
+        color: #666;
+    }
+
+#shot-chart {
+    display: inline-block;
+    width: auto;
+    float: left;
+}
+
+#strength-overlay:hover,
+label:hover {
+    cursor: pointer;
+}
+
+.area {
+    fill: rgba(200,200,200,0.1);
+}
+
+    .area.CHI {
+        fill: rgba(62,133,162,0.58);
+    }
+
+    .area.CGY {
+        fill: rgba(236,163,30,0.58);
+    }
+
+.tooltip {
+    position: absolute;
+    padding: 4px 15px;
+    font-size: 10px;
+    color: #000;
+    height: 0px;
+    border: 1px solid;
+    border-radius: 2px;
+    height: auto;
+    width: auto;
+}
+
+    .tooltip.hidden {
+        overflow: hidden;
+        opacity: 0;
+        padding: 0px;
+        border: 0px;
+        width: 0px;
+        height: 0px;
+    }
+
+    .tooltip.away {
+        background-color: #93BFD1;
+        border-color: #3E85A2;
+    }
+
+    .tooltip.home {
+        background-color: #FDEFD5;
+        border-color: #ECA31E;
+    }
+
+path.series {
+    stroke-width: 4;
+    fill: none;
+}
+
+path.away_team {
+    stroke: #6DABC4;
+}
+
+path.home_team {
+    stroke: #FFC967;
+}
+
+.linedot {
+    stroke-width: 1;
+    fill: #fff;
+}
+
+    .linedot.active {
+        stroke-width: 2;
+    }
+
+    .linedot.away_team {
+        stroke: #3E85A2;
+    }
+
+    .linedot.home_team {
+        stroke: #ECA31E;
+    }
+
+    .linedot.away_team.GOAL {
+        stroke: #175670;
+        fill: #3E85A2;
+    }
+
+    .linedot.home_team.GOAL {
+        stroke: #AC7209;
+        fill: #ECA31E;
+    }
+
+    .linedot.GOAL text {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 1px;
+        font-size: 10px;
+    }
+
+.line-helper {
+    stroke-width: 1px;
+    opacity: 0.4;
+}
+
+    .line-helper.home {
+        stroke: #ECA31E;
+    }
+
+    .line-helper.away {
+        stroke: #3E85A2;
+    }
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line {
+    stroke: rgba(150,150,150,0.15);
+}
+
+.x.axis .minor {
+    stroke-opacity: .5;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.y.axis line {
+    fill: none;
+    stroke: #999;
+}
+
+.y.axis path {
+    display: none;
+}
+
+.tick text {
+    font-size: 11px;
+    color: #333;
+}
+
+.legend text {
+    font-size: 9px;
+    fill: #999;
+    font-weight: 600;
+}
+
+.legend .away {
+    stroke: #3E85A2;
+    fill: #6DABC4;
+}
+
+.legend .home {
+    stroke: #ECA31E;
+    fill: #FFC967;
+}
+
+.legend text.total_shots {
+    fill: #333;
+}

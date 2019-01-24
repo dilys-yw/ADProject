@@ -1,0 +1,70 @@
+﻿
+
+@model List<ADProjGp2_LogicUStationeryStore.Models.RetListSummary>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Retrieval History</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div>
+        <h1>Retrieval Lists History</h1>
+        @using (@Html.BeginForm())
+        {
+            <div>
+                <table id="RDlist">
+                    <tr>
+                        <th id="colBin">Ret ID# </th>
+                        <th>Creation Date</th>
+                        <th>Clerk Name</th>
+                        <th>Status</th>
+                        <th>Req IDs</th>
+                    </tr>
+
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                    <tr>
+                        <td style="text-decoration:underline">
+                            @*Detail page divided into confirm/save *@
+                            @*@if (Model[i].status == "Confirmed")
+                            {
+                                @Html.ActionLink(Model[i].retID, "ConfirmRetrievalList", new { retrievalListID = Model[i].retID })
+                            }
+                            else
+                            {
+                                @Html.ActionLink(Model[i].retID, "RetrievalSave", new { retrievalListID = Model[i].retID })
+                            }*@
+                            @if (Model[i].status == "Confirmed")
+                            {
+                                @Html.ActionLink(Model[i].retID, "RetrievalDetail", new { retrievalListID = Model[i].retID })
+                            }
+                            else if (Model[i].status == "Pending")
+                            {
+                                @Html.ActionLink(Model[i].retID, "RetrievalPending", new { retrievalListID = Model[i].retID })
+                            }
+                        </td>
+                        @Html.HiddenFor(m => m[i].retID)
+                        <td>@Model[i].creationDate</td>
+                        @Html.HiddenFor(m => m[i].creationDate)
+                        <td>@Model[i].clerkName</td>
+                        @Html.HiddenFor(m => m[i].clerkName)
+                        <td>@Model[i].status</td>
+                        @Html.HiddenFor(m => m[i].status)
+                        <td style="text-decoration:underline">
+                            <a href='#' onclick="window.open('@Url.Action("ReqIDsPopup","Retrieval", new { retID = Model[i].retID })','','width=530,height=300,location=no,menubar=no,status=no,scrollbars=no,resizable=no top=300,left=500');">@Model[i].reqIDs.Count Requisitons</a>
+                        </td>
+                        @Html.HiddenFor(m => m[i].reqIDs)
+                    </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+
+</body>
+</html>

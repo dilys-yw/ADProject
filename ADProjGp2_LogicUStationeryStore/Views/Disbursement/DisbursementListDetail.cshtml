@@ -1,0 +1,101 @@
+﻿
+
+@model List<ADProjGp2_LogicUStationeryStore.Models.DisbursementViewModel>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisbursementListDetail</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        #RDlist th {
+            word-break: keep-all;
+        }
+
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+        }
+
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1>Disbursement List Detail</h1>
+        @using (@Html.BeginForm())
+        {
+            <div>
+                <table id="RDlist" style="min-width:1110px;">
+                    <tr>
+                        <th>Disbursement ID </th>
+                        <th>Disburse Date</th>
+                        <th style="width:150px;">Department</th>
+                        <th>Collection Point and Time</th>
+                        <th>Representative Name/ID</th>
+                        @*<th>Other details</th>*@
+                    </tr>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(Model[i].disbursementID, "DisbursementDetail", new { disburseID = Model[i].disbursementID },new {@style="text-decoration:underline;" })</td>
+                            @Html.HiddenFor(m => m[i].disbursementID)
+                            <td>@Model[i].disburseDate</td>
+                            @Html.HiddenFor(m => m[i].disburseDate)
+                            <td>@Model[i].requestorDeptID</td>
+                            @Html.HiddenFor(m => m[i].requestorDeptID)
+                            <td>@Model[i].collectionPoint (@Model[i].collectionTime)</td>
+                            @Html.HiddenFor(m => m[i].collectionPoint)
+                            @Html.HiddenFor(m => m[i].collectionTime)
+                            <td>@Model[i].repName</td>
+                            @Html.HiddenFor(m => m[i].repName)
+
+                            @*<td>
+                                @using ADProjGp2_LogicUStationeryStore.Models
+                                <table>
+                                    <tr>
+                                        <th>Requestor Name and ID </th>
+                                        <th>Requsition ID</th>
+                                        <th>Retrieval ID</th>
+                                        <th>Request Qty</th>
+                                        <th>Receive Qty</th>
+                                    </tr>
+
+
+                                    @foreach (DisbursementViewModelDetail x in Model[i].dvmdList)
+                                    {
+                                        <tr>
+                                            <td>@x.requestorName (ID:@x.requestorID)</td>
+                                            <td>@x.requisitionID</td>
+                                            <td>@x.retrievalID</td>
+                                            <td>@x.requestQty</td>
+                                            <td>@x.retrieveQty</td>
+                                        </tr>
+                                    }
+                                </table>
+
+                                @Html.HiddenFor(m => m[i].dvmdList)
+                            </td>*@
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="button-container-right">
+                @Html.ActionLink("Back", "DisbursementListSummary", null, new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+            </div>
+        }
+    </div>
+</body>
+</html>

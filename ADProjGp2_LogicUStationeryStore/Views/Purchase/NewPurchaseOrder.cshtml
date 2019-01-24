@@ -1,0 +1,159 @@
+﻿@model List<ADProjGp2_LogicUStationeryStore.Models.SuggestionViewModel>
+@{
+    ViewBag.Title = "NewPO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>New Purchase Order</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+        }
+
+        table tbody td {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+        input[type=checkbox] {
+            width: 15px;
+            height: 15px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <h1 style="">New Purchase Order</h1>
+    @using (Html.BeginForm())
+    {
+    <div class="button-container">
+
+        <!-- <form class="tab-pane fade in " id="Analysis" action="#" method="get"> -->
+
+        <div>
+            <table class="content-wrapper" style="text-align:center;width:75%;min-width:300px;">
+                <tr>
+                    <th style="width:25px;text-align:center;border-right:solid;border-right-width:thin;">
+                        <input type="checkbox" checked="checked" id="cbCloseOpen"  />
+                    </th>
+                    <th style="text-align:center;">@Html.DisplayName("ItemName")</th>
+                    <th style="text-align:center;">@Html.DisplayName("Suggested Quantity")</th>
+                    <th style="text-align:center;">@Html.DisplayName("Remark")</th>
+                </tr>
+
+                @for (var i = 0; i < Model.Count; i++)
+            {
+                <tr>
+
+                    <td style="border-right:solid;border-right-width:thin;">
+                        @Html.CheckBoxFor(m => m[i].IsSelected, new { @class = "choice" })
+                        @Html.HiddenFor(m => m[i].ItemId)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(m => m[i].Description)
+                        @Html.HiddenFor(m => m[i].Description)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(m => m[i].SQuantity)
+                        @Html.HiddenFor(m => m[i].SQuantity)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(m => m[i].remark)
+                        @Html.HiddenFor(m => m[i].remark)
+                    </td>
+
+                </tr>
+        }
+            </table>
+        </div>
+
+        <div class="button-container " style="vertical-align:central;" color="black">
+            <button type="submit" class="button button--size-s button--antiman button--round-m button--text-medium">Next</button>
+        </div>
+
+
+        <!-- <div class="button-container " style="vertical-align:central;">
+        <a href="~/UI/PurchaseOrder" class="button button--size-s button--antiman button--round-m button--text-medium">
+            <span style="font-size:20px; font-weight: 400;">Submit</span>
+        </a>
+    </div>-->
+        <!-- </form> -->
+
+
+    </div>
+    }
+    <script language="javascript">
+            var checkbox = document.getElementById("cbCloseOpen");
+            var checkboxs = document.getElementsByClassName("choice");
+
+            for (var i = 0; i < checkboxs.length; i++) {
+                checkboxs[i].checked = true;
+            }
+
+            checkbox.addEventListener("click", function () {
+                for (var i = 0; i < checkboxs.length; i++) {
+                    //************
+                    if (checkbox.checked == false) {
+                        checkboxs[i].checked = false;//all checked
+                    } else {
+                        checkboxs[i].checked = true;//checked
+                    }
+                }
+            });
+
+            for (var i = 0; i < checkboxs.length; i++) {
+                checkboxs[i].addEventListener("click", function () {
+                    for (var i = 0; i < checkboxs.length; i++) {
+                        if (checkboxs[i].checked == false) {
+                            checkbox.checked = false;
+                            break;
+                        }
+                    }
+                });
+            }
+
+            for (var i = 0; i < checkboxs.length; i++) {
+                checkboxs[i].addEventListener("click", function () {
+                    var j = checkedNum();
+                    if (j == checkboxs.length) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+            function checkedNum() {
+                var j = 0;
+                for (var i = 0; i < checkboxs.length; i++) {
+                    if (checkboxs[i].checked == true) {
+                        j++;
+                    }
+                }
+                return j;
+            }
+    </script>
+
+</body>
+</html>
+

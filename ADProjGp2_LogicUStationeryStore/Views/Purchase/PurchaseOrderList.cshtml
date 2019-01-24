@@ -1,0 +1,48 @@
+﻿@model List<ADProjGp2_LogicUStationeryStore.PurchaseOrder>
+@{
+    ViewBag.Title = "POList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+<style>
+    tr {
+    height:35px;
+    }
+</style>
+
+</head>
+<body>
+    <h1>My Orders</h1>
+    @*RetrievalList*@
+    
+    <table id="RDlist"  style="text-align:center;">
+        <tr>
+            <th style="text-align:center;">@Html.DisplayName("PO Number")</th>
+            <th style="text-align:center;">@Html.DisplayName("Order Time")</th>
+        </tr>
+        @*row1*@
+        @foreach (var purchaseOrder in Model)
+        {
+        <tr>
+            <td>
+                @Html.ActionLink(purchaseOrder.poId, "PurchaseOrderDetail", "Purchase", new { id = purchaseOrder.poId }, new {@style="text-decoration:underline;" })
+
+            </td>
+
+            <td>
+                @purchaseOrder.orderDate
+
+            </td>
+        </tr>
+
+        }
+    </table>
+    
+</body>
+</html>
+

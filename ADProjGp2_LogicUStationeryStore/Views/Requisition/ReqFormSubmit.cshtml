@@ -1,0 +1,109 @@
+﻿
+@model ADProjGp2_LogicUStationeryStore.Requisition
+@{
+    if (Session is null)
+    {
+        Html.ActionLink("Home", "Login", new ADProjGp2_LogicUStationeryStore.Models.LoginObjectModel());
+    }
+    ViewBag.Title = "Requisition Form Confirmation";
+    //unpacking employee List
+
+    Dictionary<string, string> empList = (Dictionary<string, string>) Session["EmployeeList"];
+    string employeeName = "";
+    string headName = "";
+    if (Model.employee != null && Model.approvalPerson != null)
+    {
+        employeeName = empList[Model.employee] + " (Employee ID: " + Model.employee + ")";
+        headName = empList[Model.approvalPerson] + " (Employee ID: " + Model.approvalPerson + ")";
+    }
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Stationery Requisiton Confirmation</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <br />
+    <h1>Stationery Requisiton Confirmation</h1>
+    <form action="" method="get">
+        <!-------------------------------------------------------------Requisition Info-------------------------------------------------------->
+        <br />
+        <table id="RDinfo">
+            <tr>
+                <td class="col1">Requisition Form #: </td>
+                <td class="col2">@Model.requisitionId</td>
+            </tr>
+            <tr>
+                <td class="col1">&nbsp;</td>
+                <td class="col2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="col1">Request Employee: </td>
+                <td class="col2">@Model.employee</td>
+            </tr>
+            <tr>
+                <td class="col1">Request Date: </td>
+                <td class="col2">@Model.requestDate</td>
+            </tr>
+            <tr>
+                <td class="col1">Status: </td>
+                <td class="col2">@Model.status</td>
+            </tr>
+            <tr>
+                <td class="col1">Approval By: </td>
+                <td class="col2">@Model.approvalPerson</td>
+            </tr>
+        </table>
+        <br /><br />
+        <!---------------------------------------------------Requisition Detail Table--------------------------------------------------->
+        <table id="RDlist">
+
+            <tr>
+                <th id="colItemCode">Catalogue Item Code</th>
+                <th id="colDescription">Description</th>
+                <th id="colQuantity">Quantity</th>
+            </tr>
+            @foreach (RequisitionDetail reqItem in Model.RequisitionDetails.ToList<RequisitionDetail>())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => reqItem.itemId)
+                    </td>
+                    <td>
+                        @{
+                            string itemDescription;
+                            using (SSISEntities db = new SSISEntities())
+                            {
+                                Catalogue x = db.Catalogues.Where(y => y.itemId == reqItem.itemId).First();
+                                if (x.unitOfMeasure == "Each" || x.unitOfMeasure == "Dozen")
+                                {
+                                    itemDescription = x.description + "(" + x.unitOfMeasure + ")" + " - " + x.itemId;
+                                }
+                                else
+                                {
+                                    itemDescription = x.description + "(" + x.unitOfMeasure + " of " + x.quantityInUnit + ")" + " - " + x.itemId;
+                                }
+                            }
+                        }
+                        @Html.DisplayFor(modelItem => itemDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => reqItem.requestQty)
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+        <div class="button-container-right">
+            <a class="button button--size-m button--antiman button--round-m button--text-medium" href='@Url.Action("ReqFormSubmission","Requisition")'><i></i><span>Submit Requisition for Approval</span></a>
+        </div>
+
+
+    </form>
+</body>
+</html>
+
+

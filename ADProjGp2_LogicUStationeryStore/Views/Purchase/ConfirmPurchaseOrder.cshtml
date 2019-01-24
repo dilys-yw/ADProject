@@ -1,0 +1,105 @@
+﻿@model ADProjGp2_LogicUStationeryStore.Models.CustomPOViewModel
+@{
+    ViewBag.Title = "ConfirmPO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+            padding-left: 10px;
+        }
+
+        table tbody td {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+        h3 span{
+            font-weight:300;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="panel-body" style="padding-bottom:0px;min-width:400px;">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="min-width:400px;text-align:center;font-size:25px">Purchase Order</div>
+            <div class="panel-body" style="height:auto;overflow:auto;">
+                @using (Html.BeginForm())
+                {
+                    <h3><b> Retrieval # :</b> <span style="margin-left:8px;">@ViewBag.POString</span></h3>
+                    <h3><b>Order By:</b><span style="margin-left:8px;"> @Session["EmployeeID"]</span></h3>
+                    <h3>
+                        <b>Date of Order:</b><span style="margin-left:8px;">@DateTime.Now.ToShortDateString()</span>
+                        <span style="float:right;width:40%"><b>Status:</b> <span style="margin-left:10px;">Pending</span></span>
+                    </h3>
+                    @*Table*@
+                foreach (KeyValuePair<string, string> element in Model.PoList)
+                {
+                    <br />
+                    <hr />
+                    <h3>@Html.DisplayFor(m => element.Key)</h3>
+                    <h3>@Html.DisplayFor(m => element.Value)</h3>
+
+                    <table class="content-wrapper">
+                        <tr>
+                            <th>ItemName</th>
+                            <th>Quantity</th>
+                            <th>Supplier</th>
+                            <th>Price($)</th>
+                            <th>Amount($)</th>
+                        </tr>
+
+                        @for (var j = 0; j < Model.Pvm.Count; j++)
+                        {
+                            if (element.Key == Model.Pvm[j].SelectedSupplier)
+                            {
+
+                                <tr>
+                                    <td>@Html.DisplayFor(m => m.Pvm[j].Description)</td>
+
+                                    <td>@Html.DisplayFor(m => m.Pvm[j].SQuantity)</td>
+
+                                    <td>@Html.DisplayFor(m => m.Pvm[j].SelectedSupplier)</td>
+
+                                    <td>@Html.DisplayFor(m => m.Pvm[j].Price)</td>
+
+                                    <td>@Html.DisplayFor(m => m.Pvm[j].Amount)</td>
+
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                }
+
+                    <div class="button-container-right " color="black">
+                        <button type="button" href="~/Purchase/PurchaseOrder" class="button button--size-m button--antiman button--round-m button--text-medium">Back</button>
+                        &nbsp;&nbsp;
+                        <button type="submit" class="button button--size-s button--antiman button--round-m button--text-medium">Confirm Purchase Order</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

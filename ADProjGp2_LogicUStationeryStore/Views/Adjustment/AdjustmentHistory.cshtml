@@ -1,0 +1,40 @@
+﻿
+
+@model List<ADProjGp2_LogicUStationeryStore.Models.AdjustmentVoucherViewModel>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Retrieval History</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <h1>Adjustment Vouchers History</h1>
+    @using (@Html.BeginForm())
+    {
+        <div>
+            <table id="RDlist">
+                <tr>
+                    <th>Adjustment Voucher ID# </th>
+                    <th>Creation Date</th>
+                    <th>Clerk Name</th>
+                    <th>Status</th>
+                </tr>
+
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(Model[i].voucherID, "AdjustmentDetail", new { adjustmentID = Model[i].voucherID }, new { @style = "text-decoration:underline;" })</td>
+                        <td>@Model[i].voucherDate</td>
+                        <td>@Model[i].clerkIDName</td>
+                        <td>@Model[i].status</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+
+</body>
+</html>

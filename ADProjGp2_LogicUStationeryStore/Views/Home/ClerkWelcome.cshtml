@@ -1,0 +1,271 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+
+
+@model ADProjGp2_LogicUStationeryStore.Models.ClerkWelcomePageModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clerk Welcome</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+
+        table thead, table tr {
+            /*border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;*/
+        }
+
+        table tbody th {
+            /*background-color: #d6dfe5;*/
+            background-color: rgba(214, 223, 229, 0.30);
+            padding-left: 10px;
+            text-align: center;
+        }
+
+        table tbody td {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        table {
+            /*border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #808080;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #808080;*/
+            table-layout: fixed;
+            width: 80%;
+            position: relative;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: medium;
+            min-width: 660px;
+        }
+
+        b{
+            color:coral;
+        }
+
+        fieldset {
+            position: relative;
+            padding: 15px;
+            margin: 10px 12.5%;
+            width: 75%;
+            color: #333;
+            border: #06c dashed 1px;
+            min-width:755px;
+
+        }
+        legend {
+            color: #06c;
+            font-weight: 800;
+            background: #fff;
+            padding: 3px 6px;
+            width:auto;
+            border-bottom:none;
+        } 
+    </style>
+</head>
+<body>
+    <h2 style="padding-left:20px;">  Welcome @Session["DepartmentID"].ToString() > @Session["Role"].ToString() >@Session["EmployeeName"].ToString()</h2>
+    <br />
+
+
+    @if (Model.RequisitionWPC.Count > 0)
+    {
+        using (@Html.BeginForm())
+        {
+            <div>
+                <fieldset>
+                    <legend><span>You have <b>Requistions</b> awaiting your action</span></legend>
+                    <table class="table-hover">
+                        <tr>
+                            <th>Requistion ID </th>
+                            <th>Approval Date</th>
+                        </tr>
+                        @for (int i = 0; i < Model.RequisitionWPC.Count; i++)
+                    {
+                            <tr>
+                                <td>@Html.ActionLink(Model.RequisitionWPC[i].RequisitionID, "ReqFormDetail", "Requisition", new { id = Model.RequisitionWPC[i].RequisitionID }, new { @style = "text-decoration:underline;" })</td>
+                                @Html.HiddenFor(m => m.RequisitionWPC[i].RequisitionID)
+                                <td>@Model.RequisitionWPC[i].RequisitionApproveDate</td>
+                                @Html.HiddenFor(m => m.RequisitionWPC[i].RequisitionApproveDate)
+                            </tr>
+                        }
+                    </table>
+                </fieldset>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>You have no Requistion Form awaiting your action.</h3>
+    }
+
+
+    <br />
+
+    @if (Model.RetrievalWPC.Count > 0)
+    {
+        using (@Html.BeginForm())
+        {
+            <div>
+                <fieldset>
+                    <legend>You have saved <b>Retrieval Forms</b> awaiting your confirmation</legend>
+                    <table class="table-hover">
+                        <tr>
+                            <th>Retrieval ID </th>
+                            <th>Saved Date</th>
+                        </tr>
+                        @for (int i = 0; i < Model.RetrievalWPC.Count; i++)
+                    {
+                            <tr>
+                                <td>@Html.ActionLink(Model.RetrievalWPC[i].RetrievalID, "RetrievalDetail", "Retrieval", new { retrievalListID = Model.RetrievalWPC[i].RetrievalID }, new { @style = "text-decoration:underline;" })</td>
+                                @Html.HiddenFor(m => m.RetrievalWPC[i].RetrievalID)
+                                <td>@Model.RetrievalWPC[i].RetrievalCreationDate</td>
+                                @Html.HiddenFor(m => m.RetrievalWPC[i].RetrievalCreationDate)
+                            </tr>
+                        }
+                    </table>
+
+                </fieldset>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>You have no Retrieval Form awaiting your action.</h3>
+    }
+
+
+    <br />
+
+    @if (Model.DisbursementWPC.Count > 0)
+    {
+        using (@Html.BeginForm())
+        {
+            <div>
+                <fieldset>
+                    <legend>You have <b>Disbursement Lists</b> awaiting delivery for user collection</legend>
+                    <table class="table-hover">
+                        <tr>
+                            <th>Disbursement ID </th>
+                            <th>Disbursement Creation Date</th>
+                            <th>Disbursement Collection Point</th>
+                            <th>Disbursement Collection Date</th>
+                        </tr>
+                        @for (int i = 0; i < Model.DisbursementWPC.Count; i++)
+                    {
+                            <tr>
+                                <td>@Html.ActionLink(Model.DisbursementWPC[i].DisbursementID, "WelcomeDisburseIDRedirection", "Disbursement", new { disburseID = Model.DisbursementWPC[i].DisbursementID, retID = Model.DisbursementWPC[i].DisbursementRetID }, new { @style = "text-decoration:underline;" })</td>
+                                @Html.HiddenFor(m => m.DisbursementWPC[i].DisbursementID)
+                                @Html.HiddenFor(m => m.DisbursementWPC[i].DisbursementRetID)
+                                <td>@Model.DisbursementWPC[i].DisbursementCreationDate</td>
+                                @Html.HiddenFor(m => m.DisbursementWPC[i].DisbursementCreationDate)
+                                <td>@Model.DisbursementWPC[i].DisburementCollectionPoint</td>
+                                @Html.HiddenFor(m => m.DisbursementWPC[i].DisburementCollectionPoint)
+                                <td>@Model.DisbursementWPC[i].DisbursementCollectDate</td>
+                                @Html.HiddenFor(m => m.DisbursementWPC[i].DisbursementCollectDate)
+                            </tr>
+                        }
+                    </table>
+                </fieldset>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>You have no Disbursement List to deliver.</h3>
+    }
+
+    <br />
+
+    @if (Model.AdjustmentWPC.Count > 0)
+    {
+        using (@Html.BeginForm())
+        {
+            <div>
+                <fieldset>
+                    <legend>You have <b>Adjustment Vouchers</b> awaiting approval</legend>
+                    <table class="table-hover">
+                        <tr>
+                            <th>Adjustment ID </th>
+                            <th>Adjustment Date</th>
+                        </tr>
+                        @for (int i = 0; i < Model.AdjustmentWPC.Count; i++)
+                    {
+                            <tr>
+                                <td>@Html.ActionLink(Model.AdjustmentWPC[i].AdjustmentID, "AdjustmentDetail", "Adjustment", new { adjustmentID = Model.AdjustmentWPC[i].AdjustmentID }, new { @style = "text-decoration:underline;" })</td>
+                                @Html.HiddenFor(m => m.AdjustmentWPC[i].AdjustmentID)
+                                <td>@Model.AdjustmentWPC[i].AdjustmentDate</td>
+                                @Html.HiddenFor(m => m.AdjustmentWPC[i].AdjustmentDate)
+                            </tr>
+                        }
+                    </table>
+                </fieldset>
+
+            </div>
+        }
+    }
+    else
+    {
+        <h3>You have no pending Adjustment Voucher.</h3>
+    }
+
+
+    <br />
+
+    @if (Model.StockWPC.Count > 0)
+    {
+        using (@Html.BeginForm())
+        {
+            <div>
+                <fieldset>
+                    <legend>The following items are in <strong style="color:red;">low stock level</strong> --> <a href="~/Purchase/NewPurchaseOrder" style="text-decoration:underline;">Purchase Now</a></legend>
+                    <table class="table-hover">
+                        <tr>
+                            <th>Item Name & ID</th>
+                            <th>Item Current Stock Qty</th>
+                            <th>Item Reorder Level</th>
+                            @*<th>Any Purchase incoming?</th>*@
+                            <th>Incoming Qty (if any)</th>
+                        </tr>
+                        @for (int i = 0; i < Model.StockWPC.Count; i++)
+                    {
+                            <tr>
+                                <td>@Model.StockWPC[i].ItemDescription (@Model.StockWPC[i].ItemID)</td>
+                                @Html.HiddenFor(m => m.StockWPC[i].ItemDescription)
+                                @Html.HiddenFor(m => m.StockWPC[i].ItemID)
+                                <td>@Model.StockWPC[i].qtyStock</td>
+                                @Html.HiddenFor(m => m.StockWPC[i].qtyStock)
+                                <td>@Model.StockWPC[i].qtyReorderLevel</td>
+                                @Html.HiddenFor(m => m.StockWPC[i].qtyReorderLevel)
+                                @*<td>@Model.StockWPC[i].PurchaseOrderID</td>*@
+                                @Html.HiddenFor(m => m.StockWPC[i].PurchaseOrderID)
+                                <td>@Model.StockWPC[i].purchaseQty</td>
+                                @Html.HiddenFor(m => m.StockWPC[i].purchaseQty)
+                            </tr>
+                        }
+                    </table>
+                </fieldset>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>There is no stock that is under the reorder level.</h3>
+    }
+
+    <br />
+</body>
+</html>

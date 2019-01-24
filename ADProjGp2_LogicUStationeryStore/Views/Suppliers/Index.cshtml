@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ADProjGp2_LogicUStationeryStore.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        table thead, table tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #808080;
+        }
+
+        table tbody th {
+            background-color: #d6dfe5;
+        }
+
+        table {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #808080;
+            table-layout: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="padding-bottom:10px;">Index</h1>
+    <div class="button-container-right" style="padding-top:0;">
+        @Html.ActionLink("Create New Supplier", "Create", "", new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+    </div>
+    <div>
+        <table style="min-width:800px;width:78%;" class="table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.gstNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.supplierName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.contactName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.faxNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                <th style="text-align:center;">Action</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gstNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.supplierName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.contactName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.faxNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td style="border-left:solid;border-left-width:thin;text-align:center">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.supplierId }, new { @style = "color:#005bff;" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.supplierId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.supplierId }, new { @style = "color:red;" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

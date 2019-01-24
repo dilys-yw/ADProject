@@ -1,0 +1,84 @@
+﻿@model  ADProjGp2_LogicUStationeryStore.Models.RequisitionChartModel
+@{
+    ViewBag.Title = "AnnualRequisitionReport";
+}
+
+<h3>Annual Requisition Report</h3>
+<div class="col-lg-12">
+    <div class="row">
+        <div class="form-group">
+
+
+            @using (Ajax.BeginForm("AnnualRequisitionData", "RequisitionReport", new AjaxOptions { HttpMethod = "POST", OnSuccess = "formSuccess" }))
+
+            {
+                <div class="panel panel-default">
+
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Select Year
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+
+                            <table>
+
+                                @*set maximum selection*@
+                                <tr>
+                                    @for (var i = 0; i < Model.YearSelection.Count; i++)
+                                    {
+                                        <td width="10%">
+                                            @Html.RadioButtonFor(m => Model.SelectedYear, Model.YearSelection[i].Value)
+                                            @Html.DisplayFor(m => Model.YearSelection[i].Value)
+                                            @Html.HiddenFor(m => Model.YearSelection[i].Value)
+                                        </td>
+                                    }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary"
+                        id="process"
+                        value="Process">
+                    <span class="ladda-label">Generate Report</span>
+                </button>
+
+
+            }
+            <div id="graph">
+                <canvas id="barChart" width="400" height="150"></canvas>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+@section scripts {
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--    <script src="~/Scripts/Common.js"></script> -->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+
+        var myBarChart = '';
+        function formSuccess(data) {
+            var c = document.getElementById("barChart");
+            var ctx = c.getContext("2d");
+            var tData = data;
+            
+            if (myBarChart) myBarChart.destroy(); {
+                myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: tData
+                });
+            }
+        }
+    </script>
+}

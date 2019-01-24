@@ -1,0 +1,273 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+
+body {
+    /*background: rgba(245, 132, 33, 0.87);*/
+    background: #67c8e8;
+    min-height: 100vh;
+    width: auto;
+}
+
+.title {
+    text-align: center;
+    margin: 0 auto;
+}
+
+    .title h1 {
+        font-size: 3.5em;
+        color: #fff;
+        font-weight: 600;
+        /*margin-left: 1.5em 1em 0 1em;*/
+    }
+
+    .title .bar {
+        height: .25em;
+        width: 100%;
+        background: #fff;
+        /*margin: 1.5em 1em 0 1em;*/
+    }
+
+.main {
+    /*  background: $trans-orange;*/
+    min-height: 50vh;
+    position: relative;
+    top: 18vh;
+    width: 480px;
+    padding: 20px;
+    /*background: #fff;*/
+    border-radius: 5px;
+    /*border-top: 5px solid #ff656c;*/
+    margin: 0 auto;
+}
+
+/*.row{
+
+}*/
+
+.text-center {
+    text-align: center;
+}
+
+
+input[type=text], input[type=password] {
+    font-size: 1.7em;
+    padding: .55em;
+    padding-left: 60px;
+    width: 100%;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 0.35em;
+    /******/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    input[type=text]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder {
+        color: #aaaaaa;
+        position: relative;
+        padding: 0;
+        transition: all 0.5s ease;
+    }
+
+    input[type=text]:-ms-input-placeholder, input[type=password]:-ms-input-placeholder {
+        color: #aaaaaa;
+        position: relative;
+        padding: 0;
+        transition: all 0.5s ease;
+    }
+
+    /*input[type=text]::-ms-input-placeholder, input[type=password]::-ms-input-placeholder {
+        color: #aaaaaa;
+        position: relative;
+        padding: 0;
+        transition: all 0.5s ease;
+    }*/
+
+    input[type=text]::placeholder, input[type=password]::placeholder {
+        color: #aaaaaa;
+        position: relative;
+        padding: 0;
+        transition: all 0.5s ease;
+    }
+
+    input[type=text]:hover::-webkit-input-placeholder, input[type=text]:focus::-webkit-input-placeholder, input[type=password]:hover::-webkit-input-placeholder, input[type=password]:focus::-webkit-input-placeholder {
+        padding-top: 3em;
+    }
+
+    input[type=text]:hover:-ms-input-placeholder, input[type=text]:focus:-ms-input-placeholder, input[type=password]:hover:-ms-input-placeholder, input[type=password]:focus:-ms-input-placeholder {
+        padding-top: 3em;
+    }
+
+    input[type=text]:hover::-ms-input-placeholder, input[type=text]:focus::-ms-input-placeholder, input[type=password]:hover::-ms-input-placeholder, input[type=password]:focus::-ms-input-placeholder {
+        padding-top: 3em;
+    }
+
+    input[type=text]:hover::placeholder, input[type=text]:focus::placeholder, input[type=password]:hover::placeholder, input[type=password]:focus::placeholder {
+        padding-top: 3em;
+    }
+
+#userID {
+    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
+    background-size: 25px 125px;
+}
+
+#password {
+    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
+    background-size: 25px 125px;
+}
+
+    #userID:hover, #userID:focus, #password:hover, #passwo:focus {
+        box-shadow: 0px 0px 10px 0px rgba(6, 137, 232, 0.95);
+        transition: border ease-in-out 0.15s, box-shadow ease-in-out 0.15s
+    }
+
+
+.form h2 {
+    text-align: left;
+    font-weight: 100;
+    color: #fff;
+    margin-bottom: .5em;
+}
+
+form h3 {
+    text-align: left;
+    font-weight: 600;
+    font-family: Lato;
+    color: rgba(239, 71, 47, 0.90);
+    margin-bottom: .3em;
+}
+
+.form h4 {
+    font-weight: 100;
+    color: #fff;
+    margin-top: 2em;
+}
+
+.form .login {
+    text-align: right;
+}
+
+.login, .contact, .vColPoint {
+    color: white;
+    width: 6em;
+    font-family: Lato;
+    font-weight: normal;
+    font-size: 1.75em;
+    border: 1.5px solid rgba(255, 255, 255, 0.75);
+    background: transparent;
+    transition: all 200ms ease-in;
+    border-radius: .75em;
+    text-decoration: none;
+
+}
+
+
+    .login:hover, .contact:hover, .vColPoint:hover, .login:focus, .contact:focus, .vColPoint:focus {
+        background: #fff;
+        /*color: #f58421;*/
+        color: #67c8e8;
+        border: none;
+        /*****/
+        cursor:pointer;
+    }
+
+.otherChoice {
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+
+.contact, .vColPoint {
+    font-size: 1.2em;
+    position: relative;
+    /*left: 1.5em;*/
+}
+
+.contact {
+    text-align: left;
+    margin-right: 20px;
+}
+
+.vColPoint {
+    text-align: right;
+    margin-left: 20px;
+}
+
+
+
+h1, h2 h3, h4, h5, h6, input {
+    font: Lato;
+    font-weight: 100;
+}
+
+
+.btn {
+    padding: 3px 10px 4px 10px;
+}
+
+login-button-container {
+    text-align: center;
+    padding: 4em 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+
+/*span.text-danger {
+    font-size: 12px;
+    font-weight: 400;
+    color: #a94442;
+}*/
+/*Validation END*/
+/**********************************Scroll Content START****************************/
+.notice {
+    list-style-type: none;
+    /*height: 50px;*/
+    height: 90px;
+    overflow: hidden;
+    width: 100%;
+    margin: 10px auto;
+    /*border: 1px solid #1B96EE;*/
+    border-radius: .85em;
+    font-family: Lato;
+    font-size: 20px;
+}
+
+    .notice li {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        text-indent: 10px;
+        color: #1B96EE;
+        display: block;
+        text-decoration: none;
+        padding-bottom: 20px;
+    }
+
+.notice_title {
+    color: #fff;
+    height: 40px;
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 5px 8px 5px 20px;
+    text-align: center;
+    background-color: cornflowerblue;
+    width: 480px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: .45em;
+}
+
+} /**********************************Scroll Content END****************************/

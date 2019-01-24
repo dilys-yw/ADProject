@@ -1,0 +1,100 @@
+﻿@model ADProjGp2_LogicUStationeryStore.Supplier
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <style>
+        .dl-horizontal {
+            font-size: 20px;
+        }
+
+            .dl-horizontal dt {
+                width: 180px;
+            }
+
+            .dl-horizontal dd {
+                margin-left: 270px;
+            }
+    </style>
+</head>
+<body>
+    <h1>Delete</h1>
+    <h4 style="text-align:center;font-weight:800;">Are you sure you want to <strong style="color:red;">delete</strong> this?</h4>
+    <div>
+
+        <hr />
+        <div class="button-container">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.gstNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.gstNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.supplierName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.supplierName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.contactName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.contactName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.faxNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.faxNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.address)
+                </dd>
+
+            </dl>
+        </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="button-container">
+                    <button type="submit" value="Delete" class="button button--size-m button--antiman button--round-m button--text-medium">Delete</button>
+                    @Html.ActionLink("Cancel", "Index", "", new { @class = "button button--size-m button--antiman button--round-m button--text-medium" })
+                </div>
+            }
+        </div>
+
+        </body>
+</html>

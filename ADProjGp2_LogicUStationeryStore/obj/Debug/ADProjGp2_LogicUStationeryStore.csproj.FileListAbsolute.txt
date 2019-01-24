@@ -1,0 +1,210 @@
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ApplicationInsights.config
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ADProjGp2_LogicUStationeryStore.dll.config
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ADProjGp2_LogicUStationeryStore.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ADProjGp2_LogicUStationeryStore.pdb
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csc.exe
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csc.exe.config
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csc.rsp
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csi.exe
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csi.exe.config
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csi.rsp
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.AppContext.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Console.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.Compression.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.Pipes.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Claims.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Threading.Thread.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.ValueTuple.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.XPath.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\vbc.exe
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\vbc.exe.config
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\vbc.rsp
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Antlr3.Runtime.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.SqlServer.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\MathNet.Numerics.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.Web.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.ApplicationInsights.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Newtonsoft.Json.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Net.Http.Formatting.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Helpers.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.WebHost.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Mvc.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Optimization.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Razor.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\WebGrease.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.SqlServer.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\MathNet.Numerics.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Helpers.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Mvc.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Optimization.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Razor.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Newtonsoft.Json.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Antlr3.Runtime.pdb
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Net.Http.Formatting.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.WebHost.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.Web.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.csproj.CoreCompileInputs.cache
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.csproj.CopyComplete
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.dll
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.pdb
+C:\Users\owner\source\Repos\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.csprojAssemblyReference.cache
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ApplicationInsights.config
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ADProjGp2_LogicUStationeryStore.dll.config
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ADProjGp2_LogicUStationeryStore.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\ADProjGp2_LogicUStationeryStore.pdb
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csc.exe
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csc.exe.config
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csc.rsp
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csi.exe
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csi.exe.config
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\csi.rsp
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.AppContext.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Collections.Immutable.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Console.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Diagnostics.Process.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.Compression.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.FileSystem.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.IO.Pipes.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Reflection.Metadata.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.AccessControl.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Claims.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Threading.Thread.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.ValueTuple.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.XPath.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\vbc.exe
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\vbc.exe.config
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\vbc.rsp
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\VBCSCompiler.exe
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\roslyn\VBCSCompiler.exe.config
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Antlr3.Runtime.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.SqlServer.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\MathNet.Numerics.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.DependencyCollector.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.Web.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.WindowsServer.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.ApplicationInsights.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.Web.Infrastructure.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Newtonsoft.Json.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Net.Http.Formatting.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Helpers.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.WebHost.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Mvc.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Optimization.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Razor.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Deployment.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Razor.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\WebGrease.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\EntityFramework.SqlServer.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\MathNet.Numerics.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Helpers.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Mvc.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Optimization.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Razor.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Deployment.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.WebPages.Razor.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Newtonsoft.Json.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Antlr3.Runtime.pdb
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Net.Http.Formatting.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Web.Http.WebHost.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.DependencyCollector.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.WindowsServer.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.AI.Web.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.csproj.CoreCompileInputs.cache
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.csproj.CopyComplete
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.dll
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.pdb
+D:\Yahwen\Lecture Notes\ADProject\ADProjGp2_LogicUStationeryStore-Main\ADProjGp2_LogicUStationeryStore\ADProjGp2_LogicUStationeryStore\obj\Debug\ADProjGp2_LogicUStationeryStore.csprojAssemblyReference.cache

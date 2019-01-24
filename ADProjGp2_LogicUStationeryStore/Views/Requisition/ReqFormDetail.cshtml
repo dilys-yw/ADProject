@@ -1,0 +1,191 @@
+﻿
+@model ADProjGp2_LogicUStationeryStore.Requisition
+@{
+    if (Session is null)
+    {
+        Html.ActionLink("Home", "Login", new ADProjGp2_LogicUStationeryStore.Models.LoginObjectModel());
+    }
+    ViewBag.Title = "Requisition Form Confirmation";
+    //unpacking employee List
+
+    Dictionary<string, string> empList = (Dictionary<string, string>)Session["EmployeeList"];
+    string employeeName = "";
+    string headName = "";
+    if (Model.employee != null && Model.approvalPerson != null)
+    {
+        employeeName = empList[Model.employee] + "(Employee ID: " + Model.employee + ")";
+        headName = empList[Model.approvalPerson] + "(Employee ID: " + Model.approvalPerson + ")";
+    }
+}
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Stationery Requisiton Detail</title>
+        <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+        <style>
+            input[type=submit] {
+                border: 1px solid transparent;
+                background-color: #f1f1f1;
+                padding: 10px;
+                font-size: 16px;
+                background-color: DodgerBlue;
+                color: #fff;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+        <br />
+        <h1>Stationery Requisition Details</h1>
+        <!-------------------------------------------------------------Requisition Info-------------------------------------------------------->
+        <br />
+        <table id="RDinfo">
+            <tr>
+                <td class="col1">Requisition Form #: </td>
+                <td class="col2">@Model.requisitionId</td>
+            </tr>
+            <tr>
+                <td class="col1">&nbsp;</td>
+                <td class="col2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="col1">Request Date: </td>
+                <td class="col2">@Model.requestDate</td>
+            </tr>
+            <tr>
+                <td class="col1">Request Employee: </td>
+                <td class="col2">@employeeName</td>
+            </tr>
+            <tr>
+                <td class="col1">Approval Date: </td>
+                <td class="col2">@Model.approvalDate</td>
+            </tr>
+            <tr>
+                <td class="col1">Approval By: </td>
+                <td class="col2">@headName</td>
+            </tr>
+            <tr>
+                <td class="col1">Status: </td>
+                <td class="col2">@Model.status</td>
+            </tr>
+            @{if (Model.status == "Rejected")
+                {
+                    <tr>
+                        <td class="col1">Remark: </td>
+                        <td class="col2">@Model.remark</td>
+                    </tr>
+                }
+            }
+        </table>
+        <br /><br />
+        <!---------------------------------------------------Requisition Detail Table--------------------------------------------------->
+        <table id="RDlist">
+
+            <tr>
+                <th id="colItemCode">Catalogue Item Code</th>
+                <th id="colDescription">Description</th>
+                <th id="colQuantity">Quantity</th>
+            </tr>
+            @foreach (RequisitionDetail reqItem in Model.RequisitionDetails.ToList<RequisitionDetail>())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => reqItem.itemId)
+                    </td>
+                    <td>
+                        @{
+                            string itemDescription;
+                            using (SSISEntities db = new SSISEntities())
+                            {
+                                Catalogue x = db.Catalogues.Where(y => y.itemId == reqItem.itemId).First();
+                                if (x.unitOfMeasure == "Each" || x.unitOfMeasure == "Dozen")
+                                {
+                                    itemDescription = x.description + "(" + x.unitOfMeasure + ")" + " - " + x.itemId;
+                                }
+                                else
+                                {
+                                    itemDescription = x.description + "(" + x.unitOfMeasure + " of " + x.quantityInUnit + ")" + " - " + x.itemId;
+                                }
+                            }
+                        }
+                        @Html.DisplayFor(modelItem => itemDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => reqItem.requestQty)
+                    </td>
+                </tr>
+                            }
+        </table>
+        <div style="min-width:1000px;">
+            @{
+                if (Session["Role"].ToString() == "clerk")
+                {
+                    <div class="button-container-right">
+                        <a class="button button--size-m button--antiman button--round-m button--text-medium" href='@Url.Action("RetrievalListPreparation", "Retrieval")'><i></i><span>Back to Pending Requisition Lists</span></a>
+                        <a class="button button--size-m button--antiman button--round-m button--text-medium" href='@Url.Action("RequisitionHistory", "Requisition")'><i></i><span>Back to Requisition History</span></a>
+                    </div>
+                }
+                else
+                {
+                    <div class="button-container-right">
+                        <a class="button button--size-m button--antiman button--round-m button--text-medium" href='@Url.Action("RequisitionHistory", "Requisition")'><i></i><span>Back</span></a>
+                    </div>
+                }
+            }
+            @{
+                ADProjGp2_LogicUStationeryStore.BusinessLogic.RequisitionBusinessLogic requisitionBusinessLogic = new ADProjGp2_LogicUStationeryStore.BusinessLogic.RequisitionBusinessLogic();
+                bool check = requisitionBusinessLogic.checkHeadValid(Session);
+                if (Model.status == "Submitted" && ((Session["Role"].ToString() == "head" && check == true) || (Session["Role"].ToString().Contains("auth") && check == false)))
+                //check this Dept has auth or not. If not, run the following code
+                {
+                    using (Html.BeginForm("ReqReject", "Requisition", Model))
+                    {
+                        <div class="button-container-right" style="margin-right:50px;">
+                            <button class="button button--size-m button--antiman button--round-m button--text-medium" id="btnReject" type="submit" value="Reject" disabled="disabled"><i></i><span>Reject</span></button>
+                            @Html.EditorFor(m => m.remark, new { htmlAttributes = new { @placeholder = "Reject Remark...", @style = "vertical-align:center; box-sizing:content-box;height:50%;margin-top:30px;", @id = "remark" } })
+                        </div>
+                    }
+                    using (Html.BeginForm("ReqApprove", "Requisition", Model))
+                    {
+                        <div class="button-container-right" style="margin-right:50px;">
+                            <button class="button button--size-m button--antiman button--round-m button--text-medium" id="btnApprove" type="submit" value="Approve"><i></i><span>Approve</span></button>
+                        </div>
+                    }
+                }
+                @*else if (Session["Role"].ToString() == "clerk")
+                {
+                    if (Model.status != "Submitted")
+                    {
+                        using (Html.BeginForm("ReqReject", "Requisition", Model))
+                        {
+                            <div class="button-container-right" style="margin-right:50px;">
+                                <input type="submit" name="btnReject" value="Reject" style="margin-left:5px;height:90%;font-size:13px;text-align:center;vertical-align:middle" />
+                                @Html.EditorFor(m => m.remark, new { htmlAttributes = new { @placeholder = "Remark...", @style = "vertical-align:center; box-sizing:content-box;height:50%;margin-top:30px;" } })
+                            </div>
+
+                            }
+                        }
+                    }*@
+            }
+        </div>
+        <script>
+            //cancel btnReject disabled attribute when remark is written
+            var remark = document.getElementById("remark");
+            var btnReject = document.getElementById("btnReject");
+            remark.addEventListener("keyup", function () {
+                if (remark.value != null ||remark.value == "") {
+                    btnReject.removeAttribute("disabled");
+                } 
+            });
+            remark.addEventListener("keyup", function (event) {
+                if (remark.value == null || remark.value == "") {
+                    btnReject.setAttribute("disabled", "disabled");
+                }
+            });
+        </script>
+    </body>
+</html>
+
+

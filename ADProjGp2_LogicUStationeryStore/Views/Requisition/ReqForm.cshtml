@@ -1,0 +1,198 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ADProjGp2_LogicUStationeryStore.Models.RequisitionFormItemCart
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Requisition Confirmation</title>
+    <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/js/Autocomplete.js" type="text/javascript"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 16px Arial;
+        }
+
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+            display: inline-block;
+        }
+
+        input {
+            border: 1px solid transparent;
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+            input[type=text] {
+                background-color: #f1f1f1;
+                width: 100%;
+            }
+
+            input[type=submit] {
+                background-color: DodgerBlue;
+                color: #fff;
+                cursor: pointer;
+            }
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+            .autocomplete-items div {
+                padding: 10px;
+                cursor: pointer;
+                background-color: #fff;
+                border-bottom: 1px solid #d4d4d4;
+            }
+
+                .autocomplete-items div:hover {
+                    /*when hovering an item:*/
+                    background-color: #e9e9e9;
+                }
+
+        .autocomplete-active {
+            /*when navigating through the items using the arrow keys:*/
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-body" style="padding-bottom:0px;min-width:400px;">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="min-width:400px;">New Requisition Form----Add New Item</div>
+            <div class="panel-body" style="height:auto;overflow:auto;">
+                <!--Input-->
+
+@*@using (Html.BeginForm("ReqForm", "Requisition", FormMethod.Post, new { @class = "form-horizontal", role = "form", @style = "margin:auto; min-width:265px; width:75%;margin-bottom:25px;", autocomplete = "off",@onsubmit= "return check()" }))
+{*@
+
+                <form autocomplete="off" action="~/Requisition/ReqForm" style="margin:auto; min-width:265px; width:75%;margin-bottom:25px;" method="post" onsubmit="return check()">
+                    <div style="width:650px;">
+                        <div class="autocomplete" style="width:350px;">
+                            <input style="font-size:16px;" id="addItem" type="text" name="addItem" placeholder="Please select item...">
+                        </div>
+                        <input id="addQty" type="text" name="addQty" placeholder="Please enter quantity..." style="width:180px;font-size:16px;">
+                        <input type="submit" id="btnAddNewReqItem" value="Add" style="margin-left:5px;height:90%;font-size:14px;text-align:center;vertical-align:middle;background-color:#62a8d1;">
+                    </div>
+                </form>
+@*}*@
+                <!--Table content would be empty at first. After choosing item and submit, new item requisition info would be displayed in the table.-->
+                <div style="width:100%;">
+                    @{string reqEmployee = Session["EmployeeName"].ToString() + " (" + Session["EmployeeID"].ToString() + ")"; }
+                    <table id="RDinfo">
+                        <tr>
+                            <td class="col1">Requisition Form#: </td>
+                            <td class="col2">(auto-generated)</td>
+                            <td class="col1">Request Employee:</td>
+                            <td class="col2">@reqEmployee</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Department Name:</td>
+                            <td class="col2">@Session["DepartmentName"].ToString()</td>
+                            <td class="col1">Status:</td>
+                            <td class="col2">(auto-generated)</td>
+                        </tr>
+                    </table>
+
+
+                    @*<h3>Requisition Form#: <span style="margin-left:5px;">(auto-generated)</span></h3>
+                        <h3>Request Employee:<span style="margin-left:5px;">@reqEmployee</span></h3>
+                        <h3 width="75%">
+                            Department Name:<span style="margin-left:5px;"> Department of Business(get by session)</span>
+                            <span style="text-align:right;margin-right:0px;padding-right:13%;" class="pull-right">Status:<span style="margin-left:10px;">(auto-generated)</span></span>
+                        </h3>*@
+                    <!---------------------------------------------------Requisition Detail Table--------------------------------------------------->
+                    @*Table*@
+                    <table id="RDlist" class="content-wrapper" border="1" style="margin-top:10px;width:75%;font-size: 16px; min-width:660px;">
+                        <tr>
+                            <th style="width:8%;height:35px;"></th>
+                            <th>@Html.DisplayName("ItemName")</th>
+                            <th style="width:20%">@Html.DisplayName("Quantity")</th>
+                        </tr>
+                        @{ ADProjGp2_LogicUStationeryStore.Models.RequisitionFormItemCart itemCart = Model; }
+                        @foreach (RequisitionDetail item in itemCart.RequestItemCart())
+                        {
+                            <tr>
+                                @*Press icon to delete*@
+                                <td style="height:90%;width:inherit;text-align:center;">
+                                    <a href='@Url.Action("Delete","Requisition",new { id = item.transId})'><img src="~/Content/images/trash-icon.png" style="align-content:center;height:24px;width:24px;" /></a>
+                                </td>
+                                <td>
+                                    @{
+                                        string itemDescription;
+                                        using (SSISEntities db = new SSISEntities())
+                                        {
+                                            itemDescription = db.Catalogues.Where(x => x.itemId == item.itemId).First().description;
+                                        }
+                                    }
+                                    @Html.DisplayFor(modelItem => itemDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.requestQty)
+                                </td>
+                            </tr>
+                                        }
+                    </table>
+                    <!---------------------------------------------------Requisition Detail Table end--------------------------------------------------->
+                    <h3>
+                        Department Head:<span style="margin-left:15px;"> @Session["HeadName"].ToString()</span>
+                    </h3>
+                    <div class="button-container-right">
+                        <a class="button button--size-m button--antiman button--round-m button--text-medium"  href='@Url.Action("Generate","Requisition")' style="padding-top:20px;"><i></i><span>Review Requisition</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        /*An array containing all the country names in the world:*/
+        @using ADProjGp2_LogicUStationeryStore.BusinessLogic
+        @{ RequisitionBusinessLogic bizLogic = new RequisitionBusinessLogic();}
+        var trylist = @Html.Raw(Json.Encode(bizLogic.PrepareItemMenu()));
+        /*initiate the autocomplete function on the "addItem" element, and pass along the countries array as possible autocomplete values:*/
+        autocomplete(document.getElementById("addItem"), trylist);
+
+        //Check if quantity is written
+        function check() {
+            var addQtyInput = document.getElementById("addQty");
+            var btnAddNewReqItem = document.getElementById("btnAddNewReqItem");
+            if (addQtyInput.value.length == 0) {
+                alert("Sorry. Your new request may need a quantity. Please enter quantity.");
+                addQtyInput.focus();
+                return false;
+            }
+        }
+        //Only number input
+        var inputNum = document.getElementById("addQty");
+        inputNum.addEventListener("keyup", function () {
+            this.value = this.value.replace(/\D/g, "");
+            if (this.value.substring(this.value.toString().length - 1, 1) === /\D/g) {
+                this.value = this.value.substring(0, this.value.length - 1);
+            }
+        });
+    </script>
+
+</body>
+</html>

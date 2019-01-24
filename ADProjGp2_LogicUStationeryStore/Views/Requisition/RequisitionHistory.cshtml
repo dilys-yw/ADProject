@@ -1,0 +1,218 @@
+﻿
+@model List<Requisition>
+
+@{
+    ViewBag.Title = "RequisitionHistory";
+}
+<DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Requisition History</title>
+        <link href="~/Content/css/Button-Antiman.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/css/Requisition.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+        <br />
+        @*Have authority to approve or reject*@
+        @if (Session["Role"].ToString() == "head" || Session["Role"].ToString().Contains("auth"))
+        {
+            <ul id="myTab" class="nav nav-pills" style="height:80px;margin:auto;margin-left:25px;">
+                <li class="active"> <a href="#PendingReq" data-toggle="tab">Pending Stationery Requisition</a></li>
+                <li><a href="#ReqHistory" data-toggle="tab">Stationery Requisition History</a></li>
+
+            </ul>
+            <div id="myTabContent" class="tab-content" style="border:hidden">
+                <!--Tab for PendingReq-->
+                <div class="tab-pane fade in active" id="PendingReq">
+                    <h1>Pending Stationery Requisition</h1>
+                    <form>
+                        <table id="RHlist" style="min-width:780px;">
+                            <tr>
+                                <th id="colRepFormNo">Requisition Form ID.</th>
+                                <th id="colDate">Date</th>
+                                <th id="colStatus">Status</th>
+                                <th id="colActions">Detail</th>
+                            </tr>
+                            @foreach (Requisition i in Model)
+                            {
+                                if (i.status == "Submitted")
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => i.requisitionId)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.requestDate)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.status)</td>
+                                        <td>
+                                            <a class="btn btn-info" href='@Url.Action("ReqFormDetail", "Requisition", new { id = i.requisitionId })'>Details</a>
+                                            @*<a class="btn btn-danger">Delete</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </form>
+                </div>
+                <!--Tab for ReqHistory-->
+                <div class="tab-pane fade in" id="ReqHistory">
+                    <h1>Department Stationery Requisition Lists</h1>
+                    <form>
+                        <table id="RHlist" style="min-width:780px;">
+                            <tr>
+                                <th id="colRepFormNo">Requisition Form ID.</th>
+                                <th id="colDate">Date</th>
+                                <th id="colStatus">Status</th>
+                                <th id="colActions">Detail</th>
+                            </tr>
+                            @foreach (Requisition i in Model)
+                            {
+                                if (i.status != "Submitted")
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => i.requisitionId)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.requestDate)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.status)</td>
+                                        <td>
+                                            <a class="btn btn-info" href='@Url.Action("ReqFormDetail", "Requisition", new { id = i.requisitionId })'>Details</a>
+                                            @*<a class="btn btn-danger">Delete</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </form>
+                </div>
+            </div>
+        }
+        else if (Session["DepartmentID"].ToString() != "STOR")
+        {
+            <h1 style="padding-bottom:0px;">My Stationery Requisition History</h1>
+            <div class="button-container-right" style="padding-top:10px;">
+                <a class="button button--size-m button--antiman button--round-m button--text-medium" style="width:250px;" href='@Url.Action("ReqForm", "Requisition")'><i></i><span>New Requisition Form</span></a>
+            </div>
+            <br /><br /><br /><br />
+            <form>
+                <table id="RHlist" style="min-width:780px;">
+                    <tr>
+                        <th id="colRepFormNo">Requisition Form ID.</th>
+                        <th id="colDate">Date</th>
+                        <th id="colStatus">Status</th>
+                        <th id="colActions">Detail</th>
+                    </tr>
+                    @foreach (Requisition i in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => i.requisitionId)</td>
+                            <td>@Html.DisplayFor(modelItem => i.requestDate)</td>
+                            <td>@Html.DisplayFor(modelItem => i.status)</td>
+                            <td>
+                                <a class="btn btn-info" href='@Url.Action("ReqFormDetail", "Requisition", new { id = i.requisitionId })'>Details</a>
+                                @*<a class="btn btn-danger">Delete</a>*@
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </form>
+        }
+        else if (Session["Role"].ToString() == "clerk")
+        {
+            <ul id="myTab" class="nav nav-pills" style="height:80px;margin:auto;margin-left:25px;">
+                <li class="active"> <a href="#ApprovedReq" data-toggle="tab">Approved Requisition</a></li>
+                <li><a href="#ReqHistory" data-toggle="tab">Interim Requisition History</a></li>
+                <li><a href="#ComReqHistory" data-toggle="tab">Completed Requisition History</a></li>
+
+            </ul>
+            <div id="myTabContent" class="tab-content" style="border:hidden">
+                <!--Tab for ApprovedReq-->
+                <div class="tab-pane fade in active" id="ApprovedReq">
+                    <h1>Approved Stationery Requisition</h1>
+                    <form>
+                        <table id="RHlist" style="min-width:780px;">
+                            <tr>
+                                <th id="colRepFormNo">Requisition Form ID.</th>
+                                <th id="colDate">Date</th>
+                                <th id="colStatus">Status</th>
+                                <th id="colActions">Detail</th>
+                            </tr>
+                            @foreach (Requisition i in Model)
+                            {
+                                if (i.status == "Approved")
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => i.requisitionId)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.requestDate)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.status)</td>
+                                        <td>
+                                            <a class="btn btn-info" href='@Url.Action("ReqFormDetail", "Requisition", new { id = i.requisitionId })'>Details</a>
+                                            @*<a class="btn btn-danger">Delete</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </form>
+                </div>
+                <!--Tab for ReqHistory-->
+                <div class="tab-pane fade in" id="ReqHistory">
+                    <h1>Pending Requisition Lists</h1>
+                    <form>
+                        <table id="RHlist" style="min-width:780px;">
+                            <tr>
+                                <th id="colRepFormNo">Requisition Form ID.</th>
+                                <th id="colDate">Date</th>
+                                <th id="colStatus">Status</th>
+                                <th id="colActions">Detail</th>
+                            </tr>
+                            @foreach (Requisition i in Model)
+                                {
+                                if (!i.status.Contains("Full Disbursed") || i.status != "Approved")
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => i.requisitionId)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.requestDate)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.status)</td>
+                                        <td>
+                                            <a class="btn btn-info" href='@Url.Action("ReqFormDetail", "Requisition", new { id = i.requisitionId })'>Details</a>
+                                            @*<a class="btn btn-danger">Delete</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </form>
+                </div>
+                <!--Tab for ComReqHistory-->
+                <div class="tab-pane fade in" id="ComReqHistory">
+                    <h1>Fully Disbursed Requisition Lists</h1>
+                    <form>
+                        <table id="RHlist" style="min-width:780px;">
+                            <tr>
+                                <th id="colRepFormNo">Requisition Form ID.</th>
+                                <th id="colDate">Date</th>
+                                <th id="colStatus">Status</th>
+                                <th id="colActions">Detail</th>
+                            </tr>
+                            @foreach (Requisition i in Model)
+                            {
+                                if (i.status.Contains("Full Disburse"))
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => i.requisitionId)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.requestDate)</td>
+                                        <td>@Html.DisplayFor(modelItem => i.status)</td>
+                                        <td>
+                                            <a class="btn btn-info" href='@Url.Action("ReqFormDetail", "Requisition", new { id = i.requisitionId })'>Details</a>
+                                            @*<a class="btn btn-danger">Delete</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </form>
+                </div>
+            </div>
+        }
+
+
+    </body>
+</html>
+

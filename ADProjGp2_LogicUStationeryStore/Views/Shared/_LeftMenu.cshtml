@@ -1,0 +1,418 @@
+﻿<div class="sidebar" id="sidebar">
+    <script type="text/javascript">
+        try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+    </script>
+
+
+    <ul class="nav nav-list">
+
+        @{
+            var rolename = Session["Role"].ToString();
+            if (rolename == "head")
+            {
+                @***************************************************************HOD****************************************************************@
+                <li class="active">
+                    <a href="~/Home/Welcome">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> Home </span>
+                    </a>
+                </li>
+                @*****************************************1**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Department Manage</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/Settings/AuthoriseNRep">
+                                <i class="icon-double-angle-right"></i>Assign Representative &<br />Delegate Authority
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*****************************************2**********************************@
+                <li>
+                    <a href="~/Requisition/RequisitionHistory" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Requisition Records</span>
+                    </a>
+                </li>
+                @*****************************************3**********************************@
+                <li>
+                    <a href="~/Disbursement/DisbursementListForRep" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Disbursement Lists</span>
+                    </a>
+                </li>
+                @*****************************************4**********************************@
+                <li>
+                    <a href="~/Catalogue/Index" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Browse Catalogue</span>
+                    </a>
+                </li>
+                
+                @***************************************************************HOD END****************************************************************@
+            }
+            else if (rolename == "user" || rolename.Contains("rep") || rolename.Contains("auth"))
+            {
+                @***************************************************************EMPLOYEE/REPRESENTATIVE/AUTH****************************************************************@
+                <li class="active">
+                    <a href="~/Home/Welcome">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> Home </span>
+                    </a>
+                </li>
+                @*****************************************1**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Stationery Request</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            @if (rolename.Contains("auth"))
+                            {
+                                <a href="javascript:return false;" onclick="return false;" style="cursor: default;opacity: 0.2">
+                                    <i class="icon-double-angle-right"></i> New Requisition
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="~/Requisition/ReqForm">
+                                    <i class="icon-double-angle-right"></i> New Requisition
+                                </a>
+                            }
+                        </li>
+                        <li>
+                            <a href="~/Requisition/RequisitionHistory">
+                                <i class="icon-double-angle-right"></i> Requisition History
+                            </a>
+                        </li>
+                        @*<li>
+                            @if (rolename.Contains("auth"))
+                            {
+                                <a href="~/Requisition/RequisitionHistory">
+                                    <i class="icon-double-angle-right"></i> Handle Requisition
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="javascript:return false;" onclick="return false;" style="cursor: default;opacity: 0.2">
+                                    <i class="icon-double-angle-right"></i> Handle Requisition
+                                </a>
+                            }
+                        </li>*@
+                    </ul>
+                </li>
+                @*****************************************2**********************************@
+                <li>
+                    <a href="~/Disbursement/DisbursementListForRep" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Disbursement Lists</span>
+                    </a>
+                </li>
+                @*****************************************3**********************************@
+                <li>
+                    <a href="~/Catalogue/Index" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Browse Catalogue</span>
+                    </a>
+                </li>
+                @*****************************************4**********************************@
+                <li>
+                    @if (rolename.Contains("rep"))
+                {
+                        <a href="~/Settings/SetCollectionPoint" class="dropdown-toggle">
+                            <i class="icon-expand-alt"></i>
+                            <span class="menu-text">Set Collection Point</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="javascript:return false;" onclick="return false;" style="cursor: default;opacity: 0.2">
+                            <i class="icon-expand-alt" style="opacity: 0.2"></i>
+                            <span class="menu-text">Set Collection Point</span>
+                        </a>
+                    }
+                </li>
+                @***************************************************************EMPLOYEE/REPRESENTATIVE/AUTH END****************************************************************@
+            }
+            else if (rolename == "clerk")
+            {
+                @***************************************************************STORE CLERK****************************************************************@
+                <li class="active">
+                    <a href="~/Home/Welcome">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> Home </span>
+                    </a>
+                </li>
+                @*****************************************1**********************************@
+                <li>
+                    <a href="~/Requisition/RequisitionHistory" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Browse Requisition List</span>
+                    </a>
+                </li>
+                @*****************************************2**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Retrieval Management</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/Retrieval/RetrievalListPreparation">
+                                <i class="icon-double-angle-right"></i>Pending Requisition Forms
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Retrieval/RetrievalHistory">
+                                <i class="icon-double-angle-right"></i>Retrieval List History
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*****************************************3**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Disbursement</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/Disbursement/DisbursementListSummary">
+                                <i class="icon-double-angle-right"></i>Disbursement List Summary
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*****************************************4**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Adjustment Voucher</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/Adjustment/AdjustmentVoucherCreation">
+                                <i class="icon-double-angle-right"></i>New Adjustment Voucher
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Adjustment/AdjustmentHistory">
+                                <i class="icon-double-angle-right"></i>Adjustment Vouchers History
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*****************************************5**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Puchase Orders Management</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/Purchase/NewPurchaseOrder">
+                                <i class="icon-double-angle-right"></i>New Purchase Order
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Purchase/PurchaseOrderList">
+                                <i class="icon-double-angle-right"></i>Purchase Order List
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/DeliveryOrder/DeliveryOrderList">
+                                <i class="icon-double-angle-right"></i>Delivery Order List
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*****************************************6**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Inventory Management</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/Catalogue/Index">
+                                <i class="icon-double-angle-right"></i>Catalogue
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Catalogue/Stocktake">
+                                <i class="icon-double-angle-right"></i>Stock Take
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*****************************************7**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Reports</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/RequisitionReport/AnnualRequisitionReport">
+                                <i class="icon-double-angle-right"></i>Annual Requisition Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/RequisitionReport/RequisitionReportByDepartment">
+                                <i class="icon-double-angle-right"></i>Requisition Report by Department
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/ReorderReport/AnnualPurchaseReport">
+                                <i class="icon-double-angle-right"></i>Annual Purchase Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/ReorderReport/ReorderReportBySupplier">
+                                <i class="icon-double-angle-right"></i>Reorder Report by Supplier
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*****************************************8**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Manage Info</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="http://localhost/">
+                                <i class="icon-double-angle-right"></i>Departments
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Suppliers/Index">
+                                <i class="icon-double-angle-right"></i>Suppliers
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @***************************************************************STORE CLERK END****************************************************************@
+            }
+            else if (rolename == "supervisor")
+            {
+                @***************************************************************STORE SUPERVISOR****************************************************************@
+                <li class="active">
+                    <a href="~/Home/Welcome">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> Home </span>
+                    </a>
+                </li>
+                @*****************************************1**********************************@
+                <li>
+                    <a href="~/Adjustment/AdjustmentHistory" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Approve Adjustment Voucher</span>
+                    </a>
+                </li>
+                @*****************************************2**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Browse Reports</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/RequisitionReport/AnnualRequisitionReport">
+                                <i class="icon-double-angle-right"></i>Annual Requisition Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/RequisitionReport/RequisitionReportByDepartment">
+                                <i class="icon-double-angle-right"></i>Requisition Report by Department
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/ReorderReport/AnnualPurchaseReport">
+                                <i class="icon-double-angle-right"></i>Annual Purchase Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/ReorderReport/ReorderReportBySupplier">
+                                <i class="icon-double-angle-right"></i>Reorder Report by Supplier
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @***************************************************************STORE SUPERVISOR END****************************************************************@
+            }
+            else if (rolename == "manager")
+            {
+                @***************************************************************STORE MANAGER****************************************************************@
+                <li class="active">
+                    <a href="~/Home/Welcome">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> Home </span>
+                    </a>
+                </li>
+                @*****************************************1**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Approve Adjustment Voucher</span>
+                    </a>
+                </li>
+                @*****************************************2**********************************@
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-expand-alt"></i>
+                        <span class="menu-text">Browse Reports</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="~/RequisitionReport/AnnualRequisitionReport">
+                                <i class="icon-double-angle-right"></i>Annual Requisition Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/RequisitionReport/RequisitionReportByDepartment">
+                                <i class="icon-double-angle-right"></i>Requisition Report by Department
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/ReorderReport/AnnualPurchaseReport">
+                                <i class="icon-double-angle-right"></i>Annual Purchase Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/ReorderReport/ReorderReportBySupplier">
+                                <i class="icon-double-angle-right"></i>Reorder Report by Supplier
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @***************************************************************STORE MANAGER END****************************************************************@
+            }
+        }
+
+    </ul>
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+    </div>
+
+    <script type="text/javascript">
+        try { ace.settings.check('sidebar', 'collapsed') } catch (e) { }
+    </script>
+</div>
